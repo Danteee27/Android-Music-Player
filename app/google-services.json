@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "799716143892",
+    "firebase_url": "https://musicplayer-f8dca-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "musicplayer-f8dca",
     "storage_bucket": "musicplayer-f8dca.appspot.com"
   },
@@ -14,7 +15,7 @@
       },
       "oauth_client": [
         {
-          "client_id": "799716143892-smjvofbsu7hrn2ofi0t8n3qd607b3dpa.apps.googleusercontent.com",
+          "client_id": "799716143892-poaq3lj82l507ctpd17iou5no8jeah77.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -27,7 +28,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "799716143892-smjvofbsu7hrn2ofi0t8n3qd607b3dpa.apps.googleusercontent.com",
+              "client_id": "799716143892-poaq3lj82l507ctpd17iou5no8jeah77.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

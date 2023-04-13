@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="media_id">Media ID</string>
+    <string name="song_title">Song Title</string>
+    <string name="song_subtitle">Subtitle</string>
+    <string name="song_url">Song Url</string>
+    <string name="image_url">Image Url</string>
 </resources>
