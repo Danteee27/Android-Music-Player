@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.InsertSongActivity">
+    tools:context=".activity.InsertCategoryActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,72 +17,95 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
+<!--        id: String?,-->
+<!--        name: String?,-->
+<!--        image: String?,-->
+<!--        publisher: String?,-->
+<!--        timestamp: Long,-->
+<!--        interestedCount: Int,-->
+<!--        songsCount: Int,-->
+<!--        albumsCount: Int-->
+
 
         <EditText
-            android:id="@+id/editTextSongId"
+            android:id="@+id/insertCategory_editTextIdCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/media_id"
+            android:hint="Category ID"
             android:inputType="text"
             android:layout_marginBottom="5dp" />
 
         <EditText
-            android:id="@+id/editTextSongTitle"
+            android:id="@+id/insertCategory_editTextNameCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/song_title"
+            android:hint="Category Name"
             android:inputType="text"
             android:layout_marginBottom="5dp" />
 
         <EditText
-            android:id="@+id/editTextSongSubtitle"
+            android:id="@+id/insertCategory_editTextImageUrlCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/song_subtitle"
+            android:hint="Image Url Category"
             android:inputType="text"
             android:layout_marginBottom="5dp" />
 
         <EditText
-            android:id="@+id/editTextSongUrl"
+            android:id="@+id/insertCategory_editTextPublisherCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/song_url"
+            android:hint="Category Publisher"
             android:inputType="text"
             android:layout_marginBottom="5dp" />
 
         <EditText
-            android:id="@+id/editTextSongImageUrl"
+            android:id="@+id/insertCategory_editTextTimestampCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/image_url"
-            android:inputType="text"
+            android:hint="Timestamp"
+            android:inputType="number"
+            android:layout_marginBottom="5dp" />
+
+        <EditText
+            android:id="@+id/insertCategory_editTextInterestedCountCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Number of interested category"
+            android:inputType="number"
+            android:layout_marginBottom="5dp" />
+
+        <EditText
+            android:id="@+id/insertCategory_editTextSongsCountCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Number songs of category"
+            android:inputType="number"
+            android:layout_marginBottom="5dp" />
+
+        <EditText
+            android:id="@+id/insertCategory_editTextAlbumsCountCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Number album of category"
+            android:inputType="number"
             android:layout_marginBottom="50dp" />
 
+
         <Button
-            android:id="@+id/insertSongButton"
+            android:id="@+id/insertCategory_buttonInsert"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:text="Insert" />
 
     </LinearLayout>
 
-<!--    <androidx.constraintlayout.widget.Guideline-->
-<!--        android:id="@+id/guideline2"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="horizontal"-->
-<!--        app:layout_constraintGuide_begin="20dp" />-->
-
-<!--    <androidx.constraintlayout.widget.Guideline-->
-<!--        android:id="@+id/guideline3"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="horizontal"-->
-<!--        app:layout_constraintGuide_begin="20dp" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>

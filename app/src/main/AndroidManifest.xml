@@ -13,7 +13,13 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name=".InsertSongActivity"
+            android:name=".activity.TestGetDataActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.InsertCategoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.InsertSongActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
