@@ -17,7 +17,6 @@ class MusicDatabase {
         return try {
             songCollection.get().await().toObjects(Song::class.java) // The Query Snapshot received is converted to our Song class
         } catch(e: Exception) {
-            Log.d("hello", e.toString())
             emptyList()
         }
     }

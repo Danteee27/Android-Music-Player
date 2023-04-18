@@ -41,7 +41,6 @@ class MusicServiceConnection @Inject constructor(@ApplicationContext context: Co
     private val mediaBrowser = MediaBrowserCompat(context, ComponentName(context, MusicService::class.java),
         mediaBrowserConnectionCallback, null).apply {
             connect()
-            Log.e("IshantChauhan","Media Browser Connected")
 
     }
 

@@ -39,14 +39,12 @@ class MainViewModel @ViewModelInject constructor(
 
             override fun onError(parentId: String) {
                 super.onError(parentId)
-                Log.e("IshantChauhan","Subscription Error: Parent ID is $parentId")
             }
 
             override fun onChildrenLoaded(
                 parentId: String,
                 children: MutableList<MediaBrowserCompat.MediaItem>
             ) {
-                Log.e("IshantChauhan","OnChildrenLoaded called")
                 super.onChildrenLoaded(parentId, children)
                // When the songs in MediaBrowserCompat are loaded, we get each of the song and map it to a Song.kt class's object.
                 val items = children.map {

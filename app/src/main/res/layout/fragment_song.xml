@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:gravity="center"
-        android:text="Musicify By Ishant"
+        android:text="AKK Music Player"
         android:textColor="#7B5CFF"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/ivSongImage"
