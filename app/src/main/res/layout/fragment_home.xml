@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment">
+    tools:context=".ui.fragments.HomeFragment"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,15 +37,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_margin="10dp"
-                app:layout_constraintBottom_toTopOf="@+id/appTitle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:lottie_loop="true"
+                app:layout_constraintBottom_toTopOf="@+id/appTitle"
                 app:lottie_rawRes="@raw/mars"
+                tools:lottie_rawRes="null"
+                app:lottie_loop="true"
                 app:lottie_autoPlay="true"
                 app:lottie_repeatMode="restart" />
+
+
 
 
             <TextView
@@ -76,6 +80,7 @@
                 app:lottie_loop="true"
                 app:lottie_autoPlay="true"
                 app:lottie_rawRes="@raw/music"
+                tools:lottie_rawRes="null"
                 app:lottie_repeatMode="restart" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
