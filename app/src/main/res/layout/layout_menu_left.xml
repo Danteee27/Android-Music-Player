@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -15,20 +16,37 @@
         android:background="@color/colorPrimaryDark"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_menu_home"
+
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/define_dimen_20"
-            android:padding="@dimen/define_dimen_14"
-            android:text="@string/menu_home"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_size_xnormal" />
+            android:orientation="horizontal"
+            android:baselineAligned="true"
+            android:gravity="center"
+            >
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="@color/white" />
+            <ImageView
+                android:id="@+id/ic_home"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="@dimen/define_dimen_20"
+                tools:srcCompat="@tools:sample/avatars"
+                android:src="@drawable/ic_hotline"/>
+            <TextView
+                android:id="@+id/tv_menu_home"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/define_dimen_20"
+                android:padding="@dimen/define_dimen_14"
+                android:text="@string/menu_home"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_xnormal" />
+        </LinearLayout>
+<!--        <View-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0.5dp"-->
+<!--            android:background="@color/white" />-->
 
         <TextView
             android:id="@+id/tv_menu_all_songs"

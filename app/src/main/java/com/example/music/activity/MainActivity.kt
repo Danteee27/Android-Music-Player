@@ -56,8 +56,8 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         mActivityMainBinding?.menuLeft?.tvMenuFeaturedSongs?.setOnClickListener(this)
         mActivityMainBinding?.menuLeft?.tvMenuPopularSongs?.setOnClickListener(this)
         mActivityMainBinding?.menuLeft?.tvMenuNewSongs?.setOnClickListener(this)
-        mActivityMainBinding?.menuLeft?.tvMenuFeedback?.setOnClickListener(this)
-        mActivityMainBinding?.menuLeft?.tvMenuContact?.setOnClickListener(this)
+//        mActivityMainBinding?.menuLeft?.tvMenuFeedback?.setOnClickListener(this)
+//        mActivityMainBinding?.menuLeft?.tvMenuContact?.setOnClickListener(this)
         mActivityMainBinding?.layoutBottom?.imgPrevious?.setOnClickListener(this)
         mActivityMainBinding?.layoutBottom?.imgPlay?.setOnClickListener(this)
         mActivityMainBinding?.layoutBottom?.imgNext?.setOnClickListener(this)
@@ -117,20 +117,20 @@ class MainActivity : BaseActivity(), View.OnClickListener {
                 mActivityMainBinding?.drawerLayout?.closeDrawer(GravityCompat.START)
                 openNewSongsScreen()
             }
-            R.id.tv_menu_feedback -> {
-                mActivityMainBinding?.drawerLayout?.closeDrawer(GravityCompat.START)
-                replaceFragment(FeedbackFragment())
-                mTypeScreen = TYPE_FEEDBACK
-                initToolbar(getString(R.string.menu_feedback))
-                displayLayoutPlayAll()
-            }
-            R.id.tv_menu_contact -> {
-                mActivityMainBinding?.drawerLayout?.closeDrawer(GravityCompat.START)
-                replaceFragment(ContactFragment())
-                mTypeScreen = TYPE_CONTACT
-                initToolbar(getString(R.string.menu_contact))
-                displayLayoutPlayAll()
-            }
+//            R.id.tv_menu_feedback -> {
+//                mActivityMainBinding?.drawerLayout?.closeDrawer(GravityCompat.START)
+//                replaceFragment(FeedbackFragment())
+//                mTypeScreen = TYPE_FEEDBACK
+//                initToolbar(getString(R.string.menu_feedback))
+//                displayLayoutPlayAll()
+//            }
+//            R.id.tv_menu_contact -> {
+//                mActivityMainBinding?.drawerLayout?.closeDrawer(GravityCompat.START)
+//                replaceFragment(ContactFragment())
+//                mTypeScreen = TYPE_CONTACT
+//                initToolbar(getString(R.string.menu_contact))
+//                displayLayoutPlayAll()
+//            }
             R.id.img_previous -> clickOnPrevButton()
             R.id.img_play -> clickOnPlayButton()
             R.id.img_next -> clickOnNextButton()
