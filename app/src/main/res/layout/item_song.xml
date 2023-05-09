@@ -41,18 +41,18 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/label_artist"
-                    android:textSize="@dimen/text_size_xsmall"
-                    android:textStyle="italic" />
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="@string/label_artist"-->
+<!--                    android:textSize="@dimen/text_size_xsmall"-->
+<!--                    android:textStyle="italic" />-->
 
+<!--                android:layout_marginStart="@dimen/define_dimen_5"-->
                 <TextView
                     android:id="@+id/tv_artist"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/define_dimen_5"
                     android:textSize="@dimen/text_size_xsmall"
                     android:textStyle="italic" />
             </LinearLayout>
@@ -81,13 +81,22 @@
                 android:layout_height="@dimen/define_dimen_20"
                 android:src="@drawable/ic_count_view_black"
                 tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/iv_more"
+                android:layout_width="@dimen/define_dimen_20"
+                android:layout_height="@dimen/define_dimen_20"
+                android:layout_marginStart="@dimen/define_dimen_5"
+                android:src="@drawable/ic_more"
+                tools:ignore="ContentDescription" />
+
         </LinearLayout>
     </RelativeLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_marginTop="@dimen/define_dimen_10"
-        android:background="@color/black_overlay" />
+<!--    <View-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0.5dp"-->
+<!--        android:layout_marginTop="@dimen/define_dimen_10"-->
+<!--        android:background="@color/black_overlay" />-->
 </LinearLayout>
 

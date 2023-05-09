@@ -23,6 +23,7 @@ class SongAdapter(private val mListSongs: MutableList<Song>?,
         holder.mItemSongBinding.tvSongName.text = song.getTitle()
         holder.mItemSongBinding.tvArtist.text = song.getArtist()
         holder.mItemSongBinding.tvCountView.text = song.getCount().toString()
+//        holder.mItemSongBinding.ivMore.setOnClickListener {  } dang lam
         holder.mItemSongBinding.layoutItem.setOnClickListener { iOnClickSongItemListener?.onClickItemSong(song) }
     }
 

@@ -173,10 +173,10 @@ class MusicService : Service(), OnPreparedListener, OnCompletionListener {
         remoteViews.setOnClickPendingIntent(R.id.img_previous, GlobalFuntion.openMusicReceiver(this, Constant.PREVIOUS))
         remoteViews.setOnClickPendingIntent(R.id.img_next, GlobalFuntion.openMusicReceiver(this, Constant.NEXT))
         if (isPlaying) {
-            remoteViews.setImageViewResource(R.id.img_play, R.drawable.ic_pause_gray)
+            remoteViews.setImageViewResource(R.id.img_play, R.drawable.ic_pause_white)
             remoteViews.setOnClickPendingIntent(R.id.img_play, GlobalFuntion.openMusicReceiver(this, Constant.PAUSE))
         } else {
-            remoteViews.setImageViewResource(R.id.img_play, R.drawable.ic_play_gray)
+            remoteViews.setImageViewResource(R.id.img_play, R.drawable.ic_play_white)
             remoteViews.setOnClickPendingIntent(R.id.img_play, GlobalFuntion.openMusicReceiver(this, Constant.RESUME))
         }
         remoteViews.setOnClickPendingIntent(R.id.img_close, GlobalFuntion.openMusicReceiver(this, Constant.CANNEL_NOTIFICATION))

@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
+        android:paddingStart="@dimen/define_dimen_8"
         android:layout_toStartOf="@+id/layout_close"
         android:background="@color/colorPrimaryDark"
         android:orientation="vertical">
@@ -61,9 +62,9 @@
                 android:id="@+id/ic_allSong"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:src="@drawable/ic_allSong"
+                android:src="@drawable/ic_all_song"
                 app:tint="@color/white"
-                tools:srcCompat="@drawable/ic_allSong" />
+                tools:srcCompat="@drawable/ic_all_song" />
 
             <TextView
                 android:id="@+id/tv_menu_all_songs"
@@ -92,9 +93,9 @@
                 android:id="@+id/ic_futuredSong"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:src="@drawable/ic_featuredSong"
+                android:src="@drawable/ic_featured_song"
                 app:tint="@color/white"
-                tools:srcCompat="@drawable/ic_featuredSong" />
+                tools:srcCompat="@drawable/ic_featured_song" />
 
             <TextView
                 android:id="@+id/tv_menu_featured_songs"
@@ -124,9 +125,9 @@
                 android:id="@+id/ic_popularSong"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:src="@drawable/ic_popularSong"
+                android:src="@drawable/ic_popular_song"
                 app:tint="@color/white"
-                tools:srcCompat="@drawable/ic_popularSong" />
+                tools:srcCompat="@drawable/ic_popular_song" />
 
             <TextView
                 android:id="@+id/tv_menu_popular_songs"
@@ -154,9 +155,9 @@
                 android:id="@+id/ic_newSong"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:src="@drawable/ic_newSong"
+                android:src="@drawable/ic_new_song"
                 app:tint="@color/white"
-                tools:srcCompat="@drawable/ic_newSong" />
+                tools:srcCompat="@drawable/ic_new_song" />
 
             <TextView
                 android:id="@+id/tv_menu_new_songs"
