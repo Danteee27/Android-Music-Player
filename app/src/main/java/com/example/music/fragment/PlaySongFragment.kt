@@ -13,6 +13,7 @@ import android.widget.SeekBar
 import android.widget.SeekBar.OnSeekBarChangeListener
 import androidx.fragment.app.Fragment
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import com.example.music.MyApplication
 import com.example.music.R
 import com.example.music.constant.Constant
 import com.example.music.constant.GlobalFuntion
@@ -21,6 +22,10 @@ import com.example.music.model.Song
 import com.example.music.service.MusicService
 import com.example.music.utils.AppUtil
 import com.example.music.utils.GlideUtils
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import java.util.*
 
 class PlaySongFragment : Fragment(), View.OnClickListener {
@@ -28,6 +33,7 @@ class PlaySongFragment : Fragment(), View.OnClickListener {
     private var mFragmentPlaySongBinding: FragmentPlaySongBinding? = null
     private var mTimer: Timer? = null
     private var mAction = 0
+    private var mFirebaseDatabase: FirebaseDatabase? = null
     private val mBroadcastReceiver: BroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent) {
             mAction = intent.getIntExtra(Constant.MUSIC_ACTION, 0)
@@ -36,6 +42,7 @@ class PlaySongFragment : Fragment(), View.OnClickListener {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
         mFragmentPlaySongBinding = FragmentPlaySongBinding.inflate(inflater, container, false)
         if (activity != null) {
             LocalBroadcastManager.getInstance(activity!!).registerReceiver(mBroadcastReceiver,
@@ -53,6 +60,7 @@ class PlaySongFragment : Fragment(), View.OnClickListener {
         mFragmentPlaySongBinding?.imgPrevious?.setOnClickListener(this)
         mFragmentPlaySongBinding?.imgPlay?.setOnClickListener(this)
         mFragmentPlaySongBinding?.imgNext?.setOnClickListener(this)
+        mFragmentPlaySongBinding?.imgLike?.setOnClickListener(this);
         mFragmentPlaySongBinding?.seekbar?.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
             override fun onStopTrackingTouch(seekBar: SeekBar) {
                 MusicService.mPlayer?.seekTo(seekBar.progress)
@@ -70,6 +78,14 @@ class PlaySongFragment : Fragment(), View.OnClickListener {
         val currentSong: Song? = MusicService.mListSongPlaying!![MusicService.mSongPosition]
         mFragmentPlaySongBinding?.tvSongName?.text = currentSong?.getTitle()
         mFragmentPlaySongBinding?.tvArtist?.text = currentSong?.getArtist()
+        if(currentSong?.getLiked() == false)
+        {
+            mFragmentPlaySongBinding?.imgLike?.setImageResource(R.drawable.ic_like)
+        }
+        else
+        {
+            mFragmentPlaySongBinding?.imgLike?.setImageResource(R.drawable.ic_like_black)
+        }
         GlideUtils.loadUrl(currentSong?.getImage(), mFragmentPlaySongBinding?.imgSong!!)
     }
 
@@ -167,6 +183,7 @@ class PlaySongFragment : Fragment(), View.OnClickListener {
             R.id.img_previous -> clickOnPrevButton()
             R.id.img_play -> clickOnPlayButton()
             R.id.img_next -> clickOnNextButton()
+            R.id.img_like -> clickOnLikeButton()
         }
     }
 
@@ -174,6 +191,22 @@ class PlaySongFragment : Fragment(), View.OnClickListener {
         GlobalFuntion.startMusicService(activity, Constant.PREVIOUS, MusicService.mSongPosition)
     }
 
+    private fun clickOnLikeButton() {
+        val songId = MusicService.mListSongPlaying?.get(MusicService.mSongPosition)?.getId()
+        mFirebaseDatabase?.getReference("songs/$songId/liked")
+            ?.addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val current: Boolean? = snapshot.getValue<Boolean>(Boolean::class.java)
+                    var newCurrent = false;
+                    if(current == true){
+                        newCurrent = true;
+                    }
+                    mFirebaseDatabase?.getReference("songs/$songId/liked")?.setValue(true);
+                }
+
+                override fun onCancelled(error: DatabaseError) {}
+            })
+    }
     private fun clickOnNextButton() {
         GlobalFuntion.startMusicService(activity, Constant.NEXT, MusicService.mSongPosition)
     }

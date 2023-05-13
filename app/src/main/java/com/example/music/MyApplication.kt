@@ -5,6 +5,7 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
 import android.os.Build
+import androidx.fragment.app.Fragment
 import com.example.music.constant.Constant
 import com.google.firebase.FirebaseApp
 import com.google.firebase.database.DatabaseReference
@@ -43,11 +44,19 @@ class MyApplication : Application() {
         return mFirebaseDatabase?.getReference("/songs/$songId/count")
     }
 
+    fun getLikedDatabaseReference(songId: Int): DatabaseReference? {
+        return mFirebaseDatabase?.getReference("songs/$songId/liked");
+    }
+
     companion object {
         const val CHANNEL_ID: String = "channel_music_basic_id"
         const val CHANNEL_NAME: String = "channel_music_basic_name"
         operator fun get(context: Context?): MyApplication {
             return context?.applicationContext as MyApplication
+        }
+
+        operator fun get(fragment: Fragment?): MyApplication {
+            return fragment?.context as MyApplication
         }
     }
 }

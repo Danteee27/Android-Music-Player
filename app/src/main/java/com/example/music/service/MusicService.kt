@@ -227,6 +227,24 @@ class MusicService : Service(), OnPreparedListener, OnCompletionListener {
                 })
     }
 
+    public fun changeLikeSong() {
+        val songId = mListSongPlaying?.get(mSongPosition)?.getId()
+        MyApplication[this].getLikedDatabaseReference(songId!!)
+            ?.addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val current: Boolean? = snapshot.getValue<Boolean>(Boolean::class.java)
+                    var newCurrent = false;
+                    if(current == true){
+                        newCurrent = true;
+                    }
+                    MyApplication[this@MusicService].getLikedDatabaseReference(songId)?.removeEventListener(this)
+                    MyApplication[this@MusicService].getLikedDatabaseReference(songId)?.setValue(newCurrent)
+                }
+
+                override fun onCancelled(error: DatabaseError) {}
+            })
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         if (mPlayer != null) {

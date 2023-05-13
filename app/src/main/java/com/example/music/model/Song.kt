@@ -13,6 +13,17 @@ class Song : Serializable {
     private var featured = false
     private var count = 0
     private var isPlaying = false
+    private var liked = false
+
+    fun getLiked(): Boolean {
+        return liked;
+    }
+
+    fun setLiked(liked: Boolean){
+        this.liked = liked;
+    }
+
+
     fun getId(): Int {
         return id
     }
