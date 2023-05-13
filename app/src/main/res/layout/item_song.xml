@@ -83,7 +83,7 @@
                 tools:ignore="ContentDescription" />
 
             <ImageView
-                android:id="@+id/iv_more"
+                android:id="@+id/btn_more"
                 android:layout_width="@dimen/define_dimen_20"
                 android:layout_height="@dimen/define_dimen_20"
                 android:layout_marginStart="@dimen/define_dimen_5"

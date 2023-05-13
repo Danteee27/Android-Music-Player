@@ -169,7 +169,32 @@
                 android:textSize="@dimen/text_size_xnormal" />
 
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/define_dimen_20"
+            android:baselineAligned="true"
+            android:gravity="center"
+            android:orientation="horizontal">
 
+            <androidx.constraintlayout.utils.widget.ImageFilterView
+                android:id="@+id/ic_mylist"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/ic_contact"
+                app:tint="@color/white"
+                tools:srcCompat="@drawable/ic_contact" />
+
+            <TextView
+                android:id="@+id/tv_menu_mylist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/define_dimen_14"
+                android:text="@string/menu_my_playlist"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_xnormal" />
+
+        </LinearLayout>
 <!--        <View-->
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="0.5dp"-->
@@ -234,7 +259,6 @@
                 android:textSize="@dimen/text_size_xnormal" />
 
         </LinearLayout>
-
 
 
 

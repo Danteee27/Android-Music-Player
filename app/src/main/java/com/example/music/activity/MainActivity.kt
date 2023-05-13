@@ -52,6 +52,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         mActivityMainBinding?.header?.layoutPlayAll?.setOnClickListener(this)
         mActivityMainBinding?.menuLeft?.layoutClose?.setOnClickListener(this)
         mActivityMainBinding?.menuLeft?.tvMenuHome?.setOnClickListener(this)
+        mActivityMainBinding?.menuLeft?.tvMenuMylist?.setOnClickListener(this)
         mActivityMainBinding?.menuLeft?.tvMenuAllSongs?.setOnClickListener(this)
         mActivityMainBinding?.menuLeft?.tvMenuFeaturedSongs?.setOnClickListener(this)
         mActivityMainBinding?.menuLeft?.tvMenuPopularSongs?.setOnClickListener(this)
