@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -197,11 +198,20 @@ class PlaySongFragment : Fragment(), View.OnClickListener {
             ?.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     val current: Boolean? = snapshot.getValue<Boolean>(Boolean::class.java)
-                    var newCurrent = false;
+
+                    var newCurrent = true;
                     if(current == true){
-                        newCurrent = true;
+                        newCurrent = false;
+                        mFragmentPlaySongBinding?.imgLike?.setImageResource(R.drawable.ic_like_black)
                     }
-                    mFirebaseDatabase?.getReference("songs/$songId/liked")?.setValue(true);
+                    else {
+
+                        mFragmentPlaySongBinding?.imgLike?.setImageResource(R.drawable.ic_like)
+                    }
+                    
+                    MusicService.mListSongPlaying?.get(MusicService.mSongPosition)?.setLiked(newCurrent);
+                    mFirebaseDatabase?.getReference("songs/$songId/liked")?.removeEventListener(this);
+                    mFirebaseDatabase?.getReference("songs/$songId/liked")?.setValue(newCurrent);
                 }
 
                 override fun onCancelled(error: DatabaseError) {}
