@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "1086829988852",
-    "firebase_url": "https://musicbasic-251ca-default-rtdb.firebaseio.com",
-    "project_id": "musicbasic-251ca",
-    "storage_bucket": "musicbasic-251ca.appspot.com"
+    "project_number": "122498269890",
+    "firebase_url": "https://mobile-music-player-fddd1-default-rtdb.firebaseio.com",
+    "project_id": "mobile-music-player-fddd1",
+    "storage_bucket": "mobile-music-player-fddd1.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1086829988852:android:73dc82573ddc0842bd47a1",
+        "mobilesdk_app_id": "1:122498269890:android:ab36fe693e7fa43e7bf15b",
         "android_client_info": {
           "package_name": "com.example.music"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1086829988852-g0vk6j6k8d9desecm8s2nagp7vaf6h39.apps.googleusercontent.com",
+          "client_id": "122498269890-nqklviatm44dsu84n1p6foihaq3brhm3.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCjy5oLAMJ60EiL3cs1DpgqbVLjOb20A5M"
+          "current_key": "AIzaSyBdyzVrFB88X6O3TPfJ0La7u24eghRXh_8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1086829988852-g0vk6j6k8d9desecm8s2nagp7vaf6h39.apps.googleusercontent.com",
+              "client_id": "122498269890-nqklviatm44dsu84n1p6foihaq3brhm3.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

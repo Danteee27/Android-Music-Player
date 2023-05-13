@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
@@ -19,11 +20,15 @@ import com.example.music.fragment.*
 import com.example.music.model.Song
 import com.example.music.service.MusicService
 import com.example.music.utils.GlideUtils
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : BaseActivity(), View.OnClickListener {
     private var mTypeScreen = TYPE_HOME
     private var mActivityMainBinding: ActivityMainBinding? = null
     private var mAction = 0
+    private lateinit var firebaseAuth: FirebaseAuth
+
+
     private val mBroadcastReceiver: BroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent) {
             mAction = intent.getIntExtra(Constant.MUSIC_ACTION, 0)
@@ -33,6 +38,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        firebaseAuth = FirebaseAuth.getInstance()
         mActivityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mActivityMainBinding?.root)
         LocalBroadcastManager.getInstance(this).registerReceiver(mBroadcastReceiver,
@@ -40,6 +46,9 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         openHomeScreen()
         initListener()
         displayLayoutBottom()
+
+        Log.d("Auth", firebaseAuth.currentUser?.email.toString());
+
     }
 
     private fun initToolbar(title: String?) {
