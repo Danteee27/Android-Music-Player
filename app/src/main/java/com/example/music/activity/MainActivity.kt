@@ -127,6 +127,11 @@ class MainActivity : BaseActivity(), View.OnClickListener {
                 mActivityMainBinding?.drawerLayout?.closeDrawer(GravityCompat.START)
                 openNewSongsScreen()
             }
+            R.id.tv_menu_mylist -> {
+                mActivityMainBinding?.drawerLayout?.closeDrawer(GravityCompat.START)
+                replaceFragment(ListFragment())
+                initToolbar("My Playlists")
+            }
 //            R.id.tv_menu_feedback -> {
 //                mActivityMainBinding?.drawerLayout?.closeDrawer(GravityCompat.START)
 //                replaceFragment(FeedbackFragment())
