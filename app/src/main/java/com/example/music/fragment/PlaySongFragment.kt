@@ -77,15 +77,16 @@ class PlaySongFragment : Fragment(), View.OnClickListener {
             return
         }
         val currentSong: Song? = MusicService.mListSongPlaying!![MusicService.mSongPosition]
+
         mFragmentPlaySongBinding?.tvSongName?.text = currentSong?.getTitle()
         mFragmentPlaySongBinding?.tvArtist?.text = currentSong?.getArtist()
         if(currentSong?.getLiked() == false)
         {
-            mFragmentPlaySongBinding?.imgLike?.setImageResource(R.drawable.ic_like)
+            mFragmentPlaySongBinding?.imgLike?.setImageResource(R.drawable.ic_like_black)
         }
         else
         {
-            mFragmentPlaySongBinding?.imgLike?.setImageResource(R.drawable.ic_like_black)
+            mFragmentPlaySongBinding?.imgLike?.setImageResource(R.drawable.ic_like)
         }
         GlideUtils.loadUrl(currentSong?.getImage(), mFragmentPlaySongBinding?.imgSong!!)
     }
@@ -208,7 +209,7 @@ class PlaySongFragment : Fragment(), View.OnClickListener {
 
                         mFragmentPlaySongBinding?.imgLike?.setImageResource(R.drawable.ic_like)
                     }
-                    
+
                     MusicService.mListSongPlaying?.get(MusicService.mSongPosition)?.setLiked(newCurrent);
                     mFirebaseDatabase?.getReference("songs/$songId/liked")?.removeEventListener(this);
                     mFirebaseDatabase?.getReference("songs/$songId/liked")?.setValue(newCurrent);
