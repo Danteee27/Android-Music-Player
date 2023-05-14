@@ -44,6 +44,7 @@ class MyApplication : Application() {
         return mFirebaseDatabase?.getReference("/feedback")
     }
 
+
     fun getCountViewDatabaseReference(songId: Int): DatabaseReference? {
         return mFirebaseDatabase?.getReference("/songs/$songId/count")
     }
