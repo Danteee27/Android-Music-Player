@@ -12,14 +12,23 @@
             android:id="@+id/header"
             layout="@layout/layout_toolbar" />
 
-        <FrameLayout
-            android:id="@+id/content_frame"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:id="@+id/main_scroll_view"
             android:layout_above="@+id/layout_bottom"
             android:layout_below="@+id/header"
-            android:layout_marginTop="0dp"
-            android:layout_marginBottom="-712dp" />
+            >
+
+            <FrameLayout
+                android:id="@+id/content_frame"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="-712dp" />
+
+        </ScrollView>
+
 
         <include
             android:id="@+id/layout_bottom"

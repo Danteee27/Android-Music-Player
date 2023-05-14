@@ -1,5 +1,6 @@
 package com.example.music.fragment
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
@@ -54,6 +55,7 @@ class UploadFragment : Fragment() {
         mFragmentUploadBinding?.tvUpload?.setOnClickListener { onClickUpload() }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun onClickUpload() {
         if (activity == null) {
             return
@@ -68,29 +70,21 @@ class UploadFragment : Fragment() {
         imageStorageRef.putFile(imageUri!!).addOnSuccessListener {
             // handle when upload image success
             mFragmentUploadBinding?.ivImgSong?.setImageURI(null)
+            mFragmentUploadBinding?.tvSelectImage?.text = "Select Image"
             GlobalFuntion.showToastMessage(activity, getString(R.string.msg_upload_image_success))
-//            uploadSongData()
             uploadAudio()
         }.addOnFailureListener {
             GlobalFuntion.showToastMessage(activity, getString(R.string.msg_upload_image_fail))
         }
 
-        // upload audio
-//        val audioStorageRef = storage.getReference("audios/$fileName")
-//        audioStorageRef.putFile(audioUri!!).addOnSuccessListener {
-//            // handle when upload audio success
-//            mFragmentUploadBinding?.tvSelectAudio?.setText(audioUri.toString())
-//            GlobalFuntion.showToastMessage(activity, getString(R.string.msg_upload_audio_success))
-//        }.addOnFailureListener {
-//            GlobalFuntion.showToastMessage(activity, getString(R.string.msg_upload_image_fail))
-//        }
     }
 
-    private fun uploadAudio(){
+    private fun uploadAudio() {
         val audioStorageRef = storage.getReference("audios/$fileName")
         audioStorageRef.putFile(audioUri!!).addOnSuccessListener {
             // handle when upload audio success
             mFragmentUploadBinding?.tvSelectAudio?.setText(audioUri.toString())
+            mFragmentUploadBinding?.tvSelectAudio?.text = "Select Audio"
             GlobalFuntion.showToastMessage(activity, getString(R.string.msg_upload_audio_success))
             uploadSongData()
         }.addOnFailureListener {
@@ -103,18 +97,8 @@ class UploadFragment : Fragment() {
         val storageRefDownLoadUri = Firebase.storage.reference.child("images/$fileName")
         storageRefDownLoadUri.downloadUrl.addOnSuccessListener { uri ->
             Log.d("khoa", "Download URL: $uri")
-//            mFragmentUploadBinding?.edtComment?.setText(uri.toString())
             imageUriFirebase = uri
             updateAudioUri()
-//            getNextSongId()
-//            val songId = nextSongId
-//
-//            val title = mFragmentUploadBinding?.edtTitle?.text
-//            val image = uri.toString()
-//            val audioUri = getAudioUri()
-//            val artist = mFragmentUploadBinding?.edtArtist?.text
-//            song.setSong(songId, title.toString(), image, audioUri, artist.toString())
-//            addSong(song)
 
         }.addOnFailureListener { exception ->
             // Handle any errors
@@ -139,7 +123,7 @@ class UploadFragment : Fragment() {
     private fun updateAudioUri() {
         val storageRefDownLoadUri = Firebase.storage.reference.child("audios/$fileName")
         storageRefDownLoadUri.downloadUrl.addOnSuccessListener { uri ->
-            Log.d("khoa", "Download audio URL1: $uri")
+            Log.d("khoa", "Download audio URL: $uri")
             audioUriFirebase = uri
             getNextSongId()
         }.addOnFailureListener { exception ->
@@ -149,26 +133,32 @@ class UploadFragment : Fragment() {
     }
 
     private fun getNextSongId() {
-        MyApplication[activity].getSongsDatabaseReference()
-            ?.addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    val numSongs = snapshot.childrenCount.toInt()
-                    nextSongId = numSongs + 1
-                    // Do something with the number of songs
-                    Log.d("khoa", "Download audio URL: $nextSongId")
+        MyApplication[activity].getSongsDatabaseReference()?.get()?.addOnSuccessListener {
+                snapshot ->
+            val numSongs = snapshot.childrenCount.toInt()
+            nextSongId = numSongs + 1
+            // Do something with the number of songs
+            Log.d("khoa", "Next song ID URL: $nextSongId")
 
             val title = mFragmentUploadBinding?.edtTitle?.text
             val artist = mFragmentUploadBinding?.edtArtist?.text
-            song.setSong(nextSongId, title.toString(), imageUriFirebase.toString(), audioUriFirebase.toString(), artist.toString())
+            song.setSong(
+                nextSongId,
+                title.toString(),
+                imageUriFirebase.toString(),
+                audioUriFirebase.toString(),
+                artist.toString()
+            )
             addSong(song)
-                }
+        }?.addOnFailureListener {
+//            // Handle error
+                exception ->
+            Log.e("khoa", "Failed to get download URL: ${exception.message}")
 
-                override fun onCancelled(error: DatabaseError) {
-                    // Handle error
-                    Log.e("khoa", "Failed to get download URL: ${error.message}")
-                }
-            })
-        Log.d("khoa", "next id audio: $nextSongId")
+
+
+            Log.d("khoa", "next id audio: $nextSongId")
+        }
     }
 
     private fun selectImage() {
