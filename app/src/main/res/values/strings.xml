@@ -65,4 +65,7 @@
     <string name="menu_upload">Upload</string>
     <string name="upload">Upload</string>
     <string name="select_audio">Select audio</string>
+    <string name="upload_audio">Audio</string>
+    <string name="upload_image">Image</string>
+    <string name="upload_select_image">Select image</string>
 </resources>

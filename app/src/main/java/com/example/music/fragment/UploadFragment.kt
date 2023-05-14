@@ -49,7 +49,7 @@ class UploadFragment : Fragment() {
 
     private fun initialComponent() {
 
-        mFragmentUploadBinding?.btnSelectImage?.setOnClickListener { selectImage() }
+        mFragmentUploadBinding?.tvSelectImage?.setOnClickListener { selectImage() }
         mFragmentUploadBinding?.tvSelectAudio?.setOnClickListener { selectAudio() }
         mFragmentUploadBinding?.tvUpload?.setOnClickListener { onClickUpload() }
     }
@@ -191,7 +191,7 @@ class UploadFragment : Fragment() {
         if (requestCode == REQUEST_CODE && data != null && data.data != null) {
             imageUri = data.data
             mFragmentUploadBinding?.ivImgSong?.setImageURI(imageUri)
-            mFragmentUploadBinding?.edtUrlMp3?.setText(imageUri.toString())
+            mFragmentUploadBinding?.tvSelectImage?.setText(imageUri.toString())
         }
         if (requestCode == REQUEST_CODE_AUDIO && resultCode == Activity.RESULT_OK && data != null) {
             audioUri = data.data
