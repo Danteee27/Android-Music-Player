@@ -1,5 +1,6 @@
 package com.example.music.model
 
+import android.text.Editable
 import java.io.Serializable
 
 class Song : Serializable {
@@ -14,6 +15,19 @@ class Song : Serializable {
     private var count = 0
     private var isPlaying = false
     private var liked = false
+
+    fun setSong(
+        id: Int,
+        title: String?, image: String?, url: String?, artist: String?,
+        latest:Boolean=false,
+        featured: Boolean=false) {
+        this.title = title
+        this.image = image
+        this.url = url
+        this.artist = artist
+        this.latest = latest
+        this.featured = featured
+    }
 
     fun getLiked(): Boolean {
         return liked;
