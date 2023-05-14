@@ -1,5 +1,6 @@
     package com.example.music.fragment
 
+    import android.app.Activity
     import android.os.Bundle
     import android.util.Log
     import androidx.fragment.app.Fragment
@@ -9,6 +10,9 @@
     import android.view.LayoutInflater
     import android.view.View
     import android.view.ViewGroup
+    import android.widget.Button
+    import android.widget.EditText
+    import android.widget.ImageButton
     import android.widget.TextView
     import com.example.music.MyApplication
     import com.example.music.R
@@ -28,8 +32,7 @@
     /**
      * A fragment representing a list of Items.
      */
-
-    class MyAdapter(private val userList: List<String>) :
+    class MyAdapter(private var userList: List<String>) :
         RecyclerView.Adapter<MyAdapter.ViewHolder?>() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -47,24 +50,51 @@
         }
 
         inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+            private val deleteButton: ImageButton = itemView.findViewById(R.id.delete)
             fun bind(listName: String) {
                 val listNameTextView = itemView.findViewById<TextView>(R.id.textView)
                 listNameTextView.text = listName
+                deleteButton.setOnClickListener {
+                    // Handle delete button click event
+                    val position = adapterPosition
+                    if (position != RecyclerView.NO_POSITION) {
+                        // Perform delete operation for the item at the clicked position
+                        val deletedItem = userList[position]
+                        val mutableList = userList.toMutableList()
+                        mutableList.removeAt(position)
+                        userList = mutableList.toList()
+                        notifyItemRemoved(position)
+
+                        // Perform any additional actions related to the delete operation
+                        val activity = itemView.context as Activity
+                        val firebaseAuth = FirebaseAuth.getInstance()
+                        deleteItemFromDatabase(activity, listName, firebaseAuth)
+
+                    }
+                }
             }
         }
 
     }
 
+    private fun deleteItemFromDatabase(activity: Activity, playlistName: String,firebaseAuth: FirebaseAuth) {
+        val currentUserUid = firebaseAuth.currentUser?.uid
+        val playlistRef = MyApplication[activity].getListDatabaseReference(currentUserUid)
 
+        // Get a reference to the specific playlist node using its name
+        val playlistNodeRef = playlistRef?.child(playlistName)
+
+        // Remove the playlist node and its child nodes
+        playlistNodeRef?.removeValue()
+    }
     class ListFragment : Fragment() {
         private lateinit var firebaseAuth: FirebaseAuth
         private var mFragmentListBinding: FragmentListBinding? = null
-        val userList = ArrayList<String>()
-
+        var userList = ArrayList<String>()
         override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
             firebaseAuth = FirebaseAuth.getInstance()
             mFragmentListBinding = FragmentListBinding.inflate(inflater, container, false)
-            println(firebaseAuth.currentUser?.uid.toString())
+            //println(firebaseAuth.currentUser?.uid.toString())
             getUserList()
             return mFragmentListBinding?.root
         }
@@ -77,8 +107,31 @@
             mFragmentListBinding?.recyclerView?.layoutManager = linearLayoutManager
             val adapter = MyAdapter(userList)
             mFragmentListBinding?.recyclerView?.adapter = adapter
+            val button = mFragmentListBinding?.root?.findViewById<Button>(R.id.button2)
+            button?.setOnClickListener {
+                val editText = mFragmentListBinding?.root?.findViewById<EditText>(R.id.editListName)
+                val str_listName = editText?.text.toString()
+                //println(str_listName)
+                addNewPlaylist(str_listName)
+                editText?.setText("")
+            }
         }
 
+        private fun addNewPlaylist(playlistName: String) {
+            val currentUserUid = firebaseAuth.currentUser?.uid
+            println(currentUserUid)
+            val playlistRef = MyApplication[activity].getListDatabaseReference(currentUserUid)
+
+            // Create a new child node with the playlist name as the key
+            val newPlaylistRef = playlistRef?.child(playlistName)
+
+            // Set a value to the newly created child node (e.g., an empty string)
+            newPlaylistRef?.setValue("")
+
+            // Alternatively, you can set a custom object as the value
+            // val playlist = Playlist(playlistName, ...)
+            // newPlaylistRef?.setValue(playlist)
+        }
         private fun getUserList() {
             if (activity == null) {
                 return
@@ -101,6 +154,4 @@
                 }
             })
         }
-
-
     }
