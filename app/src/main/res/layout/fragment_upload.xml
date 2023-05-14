@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.UploadFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="@dimen/define_dimen_16">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/upload_title_song"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/edt_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/define_dimen_5"
+            android:background="@drawable/bg_white_shape_border_color_main"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:padding="@dimen/define_dimen_12"
+            android:textSize="@dimen/text_size_small" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/define_dimen_16"
+            android:text="@string/upload_artist"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/edt_artist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/define_dimen_5"
+            android:background="@drawable/bg_white_shape_border_color_main"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:padding="@dimen/define_dimen_12"
+            android:textSize="@dimen/text_size_small" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/define_dimen_16"
+            android:text="@string/upload_url_mp3"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/edt_url_mp3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/define_dimen_5"
+            android:background="@drawable/bg_white_shape_border_color_main"
+            android:imeOptions="actionNext"
+            android:inputType="textUri"
+            android:padding="@dimen/define_dimen_12"
+            android:textSize="@dimen/text_size_small" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/define_dimen_16"
+            android:text="@string/feedback_comment"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/edt_comment"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/define_dimen_80"
+            android:layout_marginTop="@dimen/define_dimen_5"
+            android:background="@drawable/bg_white_shape_border_color_main"
+            android:gravity="start"
+            android:imeOptions="actionDone"
+            android:maxLength="1000"
+            android:inputType="textMultiLine"
+            android:padding="@dimen/define_dimen_12"
+            android:textSize="@dimen/text_size_small" />
+
+        <ImageView
+            android:id="@+id/iv_img_song"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            tools:srcCompat="@tools:sample/avatars"
+            android:layout_gravity="center"
+            android:contentDescription="@string/song_image" />
+
+        <Button
+            android:id="@+id/btn_select_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/select_image" />
+
+        <TextView
+            android:id="@+id/tv_select_audio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/define_dimen_5"
+            android:background="@drawable/bg_white_shape_border_color_main"
+            android:imeOptions="actionNext"
+            android:inputType="textUri"
+            android:padding="@dimen/define_dimen_12"
+            android:textSize="@dimen/text_size_small"
+            android:text="@string/select_audio"
+            tools:ignore="TextViewEdits" />
+
+
+        <TextView
+            android:id="@+id/tv_upload"
+            android:layout_width="@dimen/define_dimen_200"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/bg_main_shape_corner_6"
+            android:gravity="center"
+            android:padding="@dimen/define_dimen_12"
+            android:text="@string/upload"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_normal" />
+    </LinearLayout>
+
+</ScrollView>
