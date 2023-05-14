@@ -55,6 +55,7 @@ class UploadFragment : Fragment() {
         mFragmentUploadBinding?.tvUpload?.setOnClickListener { onClickUpload() }
     }
 
+//    @SuppressLint("SetTextI18n")
     @SuppressLint("SetTextI18n")
     private fun onClickUpload() {
         if (activity == null) {
@@ -150,14 +151,12 @@ class UploadFragment : Fragment() {
                 artist.toString()
             )
             addSong(song)
+            Log.d("khoa","Next song ID URL: ${song.getId()}")
         }?.addOnFailureListener {
 //            // Handle error
                 exception ->
             Log.e("khoa", "Failed to get download URL: ${exception.message}")
 
-
-
-            Log.d("khoa", "next id audio: $nextSongId")
         }
     }
 

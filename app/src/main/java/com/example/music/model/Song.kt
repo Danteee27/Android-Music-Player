@@ -21,6 +21,7 @@ class Song : Serializable {
         title: String?, image: String?, url: String?, artist: String?,
         latest:Boolean=false,
         featured: Boolean=false) {
+        this.id = id
         this.title = title
         this.image = image
         this.url = url
