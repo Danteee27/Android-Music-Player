@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -66,6 +67,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         mActivityMainBinding?.menuLeft?.tvMenuFeaturedSongs?.setOnClickListener(this)
         mActivityMainBinding?.menuLeft?.tvMenuPopularSongs?.setOnClickListener(this)
         mActivityMainBinding?.menuLeft?.tvMenuNewSongs?.setOnClickListener(this)
+        mActivityMainBinding?.menuLeft?.tvMenuUpload?.setOnClickListener(this)
 //        mActivityMainBinding?.menuLeft?.tvMenuFeedback?.setOnClickListener(this)
 //        mActivityMainBinding?.menuLeft?.tvMenuContact?.setOnClickListener(this)
         mActivityMainBinding?.layoutBottom?.imgPrevious?.setOnClickListener(this)
@@ -146,6 +148,12 @@ class MainActivity : BaseActivity(), View.OnClickListener {
 //                initToolbar(getString(R.string.menu_contact))
 //                displayLayoutPlayAll()
 //            }
+            R.id.tv_menu_upload->{
+                mActivityMainBinding?.drawerLayout?.closeDrawer(GravityCompat.START)
+                replaceFragment(UploadFragment())
+                mTypeScreen = TYPE_UPLOAD
+                initToolbar(getString(R.string.menu_upload))
+            }
             R.id.img_previous -> clickOnPrevButton()
             R.id.img_play -> clickOnPlayButton()
             R.id.img_next -> clickOnNextButton()
@@ -264,5 +272,6 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         const val TYPE_NEW_SONGS = 5
         const val TYPE_FEEDBACK = 6
         const val TYPE_CONTACT = 7
+        const val TYPE_UPLOAD = 7
     }
 }
