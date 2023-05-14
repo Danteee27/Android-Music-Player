@@ -48,9 +48,8 @@
 
         inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             fun bind(listName: String) {
-                val listNameTextView = itemView.findViewById<TextView>(R.id.list_name_text)
+                val listNameTextView = itemView.findViewById<TextView>(R.id.textView)
                 listNameTextView.text = listName
-                println(listName)
             }
         }
 

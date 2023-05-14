@@ -1,22 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="50dp"
+    android:gravity="center"
+    android:layout_marginTop="10dp"
+    android:background="@drawable/bg_white_shape_border_color_main">>
 
-    <LinearLayout
-        android:layout_width="412dp"
-        android:layout_height="68dp"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="5dp">
-
-        <TextView
-            android:id="@+id/list_name_text"
-            android:layout_width="386dp"
-            android:layout_height="38dp"
-            android:layout_margin="@dimen/text_margin"
-            android:text="TextView" />
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="267dp"
+        android:layout_height="45dp"
+        android:padding="8dp"
+        android:text="" />
+</FrameLayout>
