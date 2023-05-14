@@ -136,7 +136,10 @@
             if (activity == null) {
                 return
             }
-            MyApplication[activity].getListDatabaseReference(firebaseAuth.currentUser?.uid.toString())?.addValueEventListener(object : ValueEventListener {
+            val uid = firebaseAuth.currentUser?.uid.toString()
+            val reference = MyApplication[activity].getListDatabaseReference(uid)
+
+            reference?.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     userList.clear()
                     for (dataSnapshot in snapshot.children) {
