@@ -7,13 +7,12 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="373dp"
-        android:layout_height="615dp"
+        android:layout_width="322dp"
+        android:layout_height="640dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
@@ -22,8 +21,8 @@
         android:id="@+id/imageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_input_add" />
@@ -32,7 +31,7 @@
         android:id="@+id/list_name_text"
         android:layout_width="216dp"
         android:layout_height="49dp"
-        android:layout_marginStart="36dp"
+        android:layout_marginStart="32dp"
         android:layout_marginBottom="24dp"
         android:ems="10"
         android:inputType="textPersonName"
