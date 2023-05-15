@@ -22,7 +22,8 @@ class SongGridAdapter(private val mListSongs: MutableList<Song>?,
         GlideUtils.loadUrl(song.getImage(), holder.mItemSongGridBinding.imgSong)
         holder.mItemSongGridBinding.tvSongName.text = song.getTitle()
         holder.mItemSongGridBinding.tvArtist.text = song.getArtist()
-        holder.mItemSongGridBinding.layoutItem.setOnClickListener { iOnClickSongItemListener?.onClickItemSong(song) }
+        holder.mItemSongGridBinding.cardItem.setOnClickListener { iOnClickSongItemListener?.onClickItemSong(song) }
+//        holder.mItemSongGridBinding.imgMoreAction.setOnClickListener {  }
     }
 
     override fun getItemCount(): Int {

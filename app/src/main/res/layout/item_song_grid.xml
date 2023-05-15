@@ -10,6 +10,7 @@
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/card_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="@dimen/define_dimen_6">
@@ -29,7 +30,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toStartOf="@+id/iv_more_action">
+            android:layout_toStartOf="@+id/img_more_action">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -67,7 +68,7 @@
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/iv_more_action"
+            android:id="@+id/img_more_action"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_alignParentEnd="true"
