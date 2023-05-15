@@ -88,12 +88,26 @@ class GenreSongsFragment(private val genre: Genre?) : Fragment() {
         if (activity?.getActivityMainBinding() == null) {
             return
         }
+
         activity.getActivityMainBinding()!!.header.layoutPlayAll.setOnClickListener {
+            // Play all songs
             MusicService.clearListSongPlaying()
             mListSong?.let { it1 -> MusicService.mListSongPlaying?.addAll(it1) }
             MusicService.isPlaying = false
             GlobalFuntion.startMusicService(getActivity(), Constant.PLAY, 0)
             GlobalFuntion.startActivity(getActivity(), PlayMusicActivity::class.java)
+        }
+
+        activity.getActivityMainBinding()!!.header.layoutShuffle.setOnClickListener {
+            // Shuffle the song list
+            mListSong?.let { songs ->
+                val shuffledSongs = songs.shuffled()
+                MusicService.clearListSongPlaying()
+                MusicService.mListSongPlaying?.addAll(shuffledSongs)
+                MusicService.isPlaying = false
+                GlobalFuntion.startMusicService(getActivity(), Constant.PLAY, 0)
+                GlobalFuntion.startActivity(getActivity(), PlayMusicActivity::class.java)
+            }
         }
     }
 

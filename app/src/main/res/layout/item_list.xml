@@ -1,39 +1,55 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="50dp"
-    android:gravity="center"
     android:layout_marginTop="10dp"
-    android:background="@drawable/bg_white_shape_border_color_main">>
+    android:background="@drawable/bg_white_shape_border_color_main">
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="203dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:padding="8dp"
-        android:text="" />
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.146"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="320dp"
-        android:layout_marginTop="4dp"
-        app:srcCompat="@drawable/ic_close_black" />
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="14dp"
+        android:background="@drawable/bg_main_shape_corner_6_border_white"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.986"
+        app:layout_constraintStart_toEndOf="@id/textView"
+        app:srcCompat="@drawable/ic_close_white" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_marginTop="6dp"
-        android:layout_width="47dp"
+        android:layout_width="51dp"
         android:layout_height="37dp"
-        app:srcCompat="@drawable/ic_playlist" />
+        android:layout_marginTop="6dp"
+        app:srcCompat="@drawable/ic_playlist"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/view"
-        android:layout_width="59dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="260dp"
-        android:layout_marginTop="4dp"
-        android:text="View" />
-</FrameLayout>
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="48dp"
+        android:background="@drawable/bg_main_shape_corner_6_border_white"
+        android:text="View"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

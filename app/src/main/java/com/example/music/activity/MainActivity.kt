@@ -86,6 +86,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         mTypeScreen = TYPE_HOME
         initToolbar(getString(R.string.app_name))
         displayLayoutPlayAll()
+        displayShuffle()
     }
 
     fun openAllSongsScreen(){
@@ -93,6 +94,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         mTypeScreen = TYPE_ALL_SONGS
         initToolbar(getString(R.string.menu_all_songs))
         displayLayoutPlayAll()
+        displayShuffle()
     }
 
     fun openGenreSongsScreen(genre:Genre?){
@@ -100,6 +102,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         mTypeScreen = TYPE_GENRE_SONGS
         initToolbar(genre?.getName() ?:"Genre")
         displayLayoutPlayAll()
+        displayShuffle()
     }
 
     fun openPopularSongsScreen() {
@@ -107,6 +110,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         mTypeScreen = TYPE_POPULAR_SONGS
         initToolbar(getString(R.string.menu_popular_songs))
         displayLayoutPlayAll()
+        displayShuffle()
     }
 
     fun openNewSongsScreen() {
@@ -114,12 +118,14 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         mTypeScreen = TYPE_NEW_SONGS
         initToolbar(getString(R.string.menu_new_songs))
         displayLayoutPlayAll()
+        displayShuffle()
     }
     fun openListScreen() {
         replaceFragment(ListFragment())
         mTypeScreen = TYPE_LIST
         initToolbar("My Playlists")
         displayLayoutPlayAll()
+        displayShuffle()
     }
     override fun onClick(v: View) {
         when (v.id) {
@@ -135,6 +141,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
                 mTypeScreen = TYPE_ALL_SONGS
                 initToolbar(getString(R.string.menu_all_songs))
                 displayLayoutPlayAll()
+                displayShuffle()
             }
             R.id.tv_menu_featured_songs -> {
                 mActivityMainBinding?.drawerLayout?.closeDrawer(GravityCompat.START)
@@ -142,6 +149,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
                 mTypeScreen = TYPE_FEATURED_SONGS
                 initToolbar(getString(R.string.menu_featured_songs))
                 displayLayoutPlayAll()
+                displayShuffle()
             }
             R.id.tv_menu_popular_songs -> {
                 mActivityMainBinding?.drawerLayout?.closeDrawer(GravityCompat.START)
@@ -160,14 +168,12 @@ class MainActivity : BaseActivity(), View.OnClickListener {
                 replaceFragment(FeedbackFragment())
                 mTypeScreen = TYPE_FEEDBACK
                 initToolbar(getString(R.string.menu_feedback))
-                displayLayoutPlayAll()
             }
             R.id.tv_menu_contact -> {
                 mActivityMainBinding?.drawerLayout?.closeDrawer(GravityCompat.START)
                 replaceFragment(ContactFragment())
                 mTypeScreen = TYPE_CONTACT
                 initToolbar(getString(R.string.menu_contact))
-                displayLayoutPlayAll()
             }
             R.id.tv_menu_account -> {
                 mActivityMainBinding?.drawerLayout?.closeDrawer(GravityCompat.START)
@@ -220,6 +226,18 @@ class MainActivity : BaseActivity(), View.OnClickListener {
             TYPE_GENRE_SONGS -> mActivityMainBinding?.header?.layoutPlayAll?.visibility = View.VISIBLE
             TYPE_LIST-> mActivityMainBinding?.header?.layoutPlayAll?.visibility = View.VISIBLE
             else -> mActivityMainBinding?.header?.layoutPlayAll?.visibility = View.GONE
+        }
+    }
+
+    private fun displayShuffle() {
+        when (mTypeScreen) {
+            TYPE_ALL_SONGS -> mActivityMainBinding?.header?.layoutShuffle?.visibility = View.VISIBLE
+            TYPE_FEATURED_SONGS -> mActivityMainBinding?.header?.layoutShuffle?.visibility = View.VISIBLE
+            TYPE_POPULAR_SONGS -> mActivityMainBinding?.header?.layoutShuffle?.visibility = View.VISIBLE
+            TYPE_NEW_SONGS -> mActivityMainBinding?.header?.layoutShuffle?.visibility = View.VISIBLE
+            TYPE_GENRE_SONGS -> mActivityMainBinding?.header?.layoutShuffle?.visibility = View.VISIBLE
+            TYPE_LIST-> mActivityMainBinding?.header?.layoutShuffle?.visibility = View.VISIBLE
+            else -> mActivityMainBinding?.header?.layoutShuffle?.visibility = View.GONE
         }
     }
 
