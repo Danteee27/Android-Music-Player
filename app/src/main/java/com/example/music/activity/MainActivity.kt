@@ -68,8 +68,9 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         mActivityMainBinding?.menuLeft?.tvMenuPopularSongs?.setOnClickListener(this)
         mActivityMainBinding?.menuLeft?.tvMenuNewSongs?.setOnClickListener(this)
         mActivityMainBinding?.menuLeft?.tvMenuUpload?.setOnClickListener(this)
-//        mActivityMainBinding?.menuLeft?.tvMenuFeedback?.setOnClickListener(this)
-//        mActivityMainBinding?.menuLeft?.tvMenuContact?.setOnClickListener(this)
+        mActivityMainBinding?.menuLeft?.tvMenuFeedback?.setOnClickListener(this)
+        mActivityMainBinding?.menuLeft?.tvMenuContact?.setOnClickListener(this)
+        mActivityMainBinding?.menuLeft?.tvMenuLibrary?.setOnClickListener(this)
         mActivityMainBinding?.layoutBottom?.imgPrevious?.setOnClickListener(this)
         mActivityMainBinding?.layoutBottom?.imgPlay?.setOnClickListener(this)
         mActivityMainBinding?.layoutBottom?.imgNext?.setOnClickListener(this)
@@ -134,25 +135,31 @@ class MainActivity : BaseActivity(), View.OnClickListener {
                 replaceFragment(ListFragment())
                 initToolbar("My Playlists")
             }
-//            R.id.tv_menu_feedback -> {
-//                mActivityMainBinding?.drawerLayout?.closeDrawer(GravityCompat.START)
-//                replaceFragment(FeedbackFragment())
-//                mTypeScreen = TYPE_FEEDBACK
-//                initToolbar(getString(R.string.menu_feedback))
-//                displayLayoutPlayAll()
-//            }
-//            R.id.tv_menu_contact -> {
-//                mActivityMainBinding?.drawerLayout?.closeDrawer(GravityCompat.START)
-//                replaceFragment(ContactFragment())
-//                mTypeScreen = TYPE_CONTACT
-//                initToolbar(getString(R.string.menu_contact))
-//                displayLayoutPlayAll()
-//            }
+            R.id.tv_menu_feedback -> {
+                mActivityMainBinding?.drawerLayout?.closeDrawer(GravityCompat.START)
+                replaceFragment(FeedbackFragment())
+                mTypeScreen = TYPE_FEEDBACK
+                initToolbar(getString(R.string.menu_feedback))
+                displayLayoutPlayAll()
+            }
+            R.id.tv_menu_contact -> {
+                mActivityMainBinding?.drawerLayout?.closeDrawer(GravityCompat.START)
+                replaceFragment(ContactFragment())
+                mTypeScreen = TYPE_CONTACT
+                initToolbar(getString(R.string.menu_contact))
+                displayLayoutPlayAll()
+            }
             R.id.tv_menu_upload->{
                 mActivityMainBinding?.drawerLayout?.closeDrawer(GravityCompat.START)
                 replaceFragment(UploadFragment())
                 mTypeScreen = TYPE_UPLOAD
                 initToolbar(getString(R.string.menu_upload))
+            }
+            R.id.tv_menu_library->{
+                mActivityMainBinding?.drawerLayout?.closeDrawer(GravityCompat.START)
+                replaceFragment(LibraryFragment())
+                mTypeScreen = TYPE_LIBRARY
+                initToolbar(getString(R.string.menu_library))
             }
             R.id.img_previous -> clickOnPrevButton()
             R.id.img_play -> clickOnPlayButton()
@@ -272,6 +279,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         const val TYPE_NEW_SONGS = 5
         const val TYPE_FEEDBACK = 6
         const val TYPE_CONTACT = 7
-        const val TYPE_UPLOAD = 7
+        const val TYPE_UPLOAD = 8
+        const val TYPE_LIBRARY = 9
     }
 }

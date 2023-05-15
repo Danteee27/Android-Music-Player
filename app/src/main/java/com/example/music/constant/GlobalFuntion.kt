@@ -9,6 +9,7 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.net.Uri
 import android.os.Build
 import android.view.inputmethod.InputMethodManager
@@ -120,6 +121,17 @@ object GlobalFuntion {
         val nfdNormalizedString = Normalizer.normalize(input, Normalizer.Form.NFD)
         val pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+")
         return pattern.matcher(nfdNormalizedString).replaceAll("")
+    }
+
+    fun getHexColorGenre(colorName:String?):Int{
+        when(colorName){
+            "greenGenre" -> return Color.parseColor("#1b8a16")
+            "blueGenre" -> return Color.parseColor("#1a74e9")
+            "orangeGenre" -> return Color.parseColor("#d63e14")
+            "pinkGenre" -> return Color.parseColor("#da118c")
+            "purpleGenre" -> return Color.parseColor("#745afc")
+        }
+        return Color.parseColor("#503750")
     }
 
     fun startMusicService(ctx: Context?, action: Int, songPosition: Int) {
