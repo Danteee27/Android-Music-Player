@@ -165,7 +165,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
             }
             R.id.tv_menu_feedback -> {
                 mActivityMainBinding?.drawerLayout?.closeDrawer(GravityCompat.START)
-                replaceFragment(FeedbackFragment())
+                replaceFragment(AdminFeedbackFragment())
                 mTypeScreen = TYPE_FEEDBACK
                 initToolbar(getString(R.string.menu_feedback))
             }

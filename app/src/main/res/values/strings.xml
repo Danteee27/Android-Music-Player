@@ -37,7 +37,7 @@
     <string name="action_cancel">Cancel</string>
 
     // Validate
-    <string name="name_require">Please enter your name</string>
+    <string name="email_require">Please enter your email</string>
     <string name="comment_require">Please enter your comment</string>
 
     // Hint

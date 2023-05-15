@@ -1,23 +1,8 @@
 package com.example.music.model
 
-class Feedback(private var name: String?, private var phone: String?,
-               private var email: String?, private var comment: String?) {
+class Feedback(private var email: String?, private var comment: String?) {
 
-    fun getName(): String? {
-        return name
-    }
 
-    fun setName(name: String?) {
-        this.name = name
-    }
-
-    fun getPhone(): String? {
-        return phone
-    }
-
-    fun setPhone(phone: String?) {
-        this.phone = phone
-    }
 
     fun getEmail(): String? {
         return email
