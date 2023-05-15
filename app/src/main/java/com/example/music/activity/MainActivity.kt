@@ -8,6 +8,8 @@ import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
@@ -68,7 +70,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         mActivityMainBinding?.menuLeft?.tvMenuFeaturedSongs?.setOnClickListener(this)
         mActivityMainBinding?.menuLeft?.tvMenuPopularSongs?.setOnClickListener(this)
         mActivityMainBinding?.menuLeft?.tvMenuNewSongs?.setOnClickListener(this)
-        mActivityMainBinding?.menuLeft?.tvMenuUpload?.setOnClickListener(this)
+
         mActivityMainBinding?.menuLeft?.tvMenuFeedback?.setOnClickListener(this)
         mActivityMainBinding?.menuLeft?.tvMenuContact?.setOnClickListener(this)
         mActivityMainBinding?.menuLeft?.tvMenuLibrary?.setOnClickListener(this)
@@ -79,8 +81,17 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         mActivityMainBinding?.layoutBottom?.imgClose?.setOnClickListener(this)
         mActivityMainBinding?.layoutBottom?.layoutText?.setOnClickListener(this)
         mActivityMainBinding?.layoutBottom?.imgSong?.setOnClickListener(this)
+        if(!isAdmin()){
+            mActivityMainBinding?.menuLeft?.layoutMenuUpload?.visibility = View.GONE
+        }else{
+            mActivityMainBinding?.menuLeft?.tvMenuUpload?.setOnClickListener(this)
+//            mActivityMainBinding?.menuLeft?.tvMenuFeedback
+        }
     }
 
+   fun isAdmin(): Boolean {
+        return  firebaseAuth.currentUser?.email.toString().equals("admin@gmail.com")
+    }
     private fun openHomeScreen() {
         replaceFragment(HomeFragment())
         mTypeScreen = TYPE_HOME

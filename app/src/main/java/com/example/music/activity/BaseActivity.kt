@@ -79,4 +79,5 @@ abstract class BaseActivity : AppCompatActivity() {
         }
         super.onDestroy()
     }
+
 }

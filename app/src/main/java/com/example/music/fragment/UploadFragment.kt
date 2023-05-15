@@ -97,7 +97,7 @@ class UploadFragment : Fragment() {
                 position: Int,
                 id: Long
             ) {
-                GlobalFuntion.showToastMessage(activity, genreAdapter.getItem(position)?.getName())
+//                GlobalFuntion.showToastMessage(activity, genreAdapter.getItem(position)?.getName())
                 // Do something when an item is selected
             }
 
@@ -130,6 +130,8 @@ class UploadFragment : Fragment() {
         remix.setColor("orangeGenre")
         edm.setName("EDM")
         edm.setColor("pinkGenre")
+        nhacTre.setName("Nhạc trẻ")
+        nhacTre.setColor("purpleGenre")
         hipHop.setName("Hip-hop")
         hipHop.setColor("darkPinkGenre")
         kPop.setName("K-pop")
@@ -150,6 +152,14 @@ class UploadFragment : Fragment() {
         list.add(remix)
         list.add(edm)
         list.add(nhacTre)
+        list.add(hipHop)
+        list.add(kPop)
+        list.add(rock)
+        list.add(indie)
+        list.add(classical)
+        list.add(ambient)
+        list.add(disco)
+
 
         return list
     }
