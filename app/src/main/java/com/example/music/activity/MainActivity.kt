@@ -83,7 +83,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         mActivityMainBinding?.layoutBottom?.imgSong?.setOnClickListener(this)
         if(!isAdmin()){
             mActivityMainBinding?.menuLeft?.layoutMenuUpload?.visibility = View.GONE
-            mActivityMainBinding?.menuLeft?.tvMenuComment?.visibility = View.GONE
+            mActivityMainBinding?.menuLeft?.layoutMenuComment?.visibility = View.GONE
         }else{
             mActivityMainBinding?.menuLeft?.tvMenuUpload?.setOnClickListener(this)
             mActivityMainBinding?.menuLeft?.tvMenuComment?.setOnClickListener(this)
@@ -177,7 +177,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
             }
             R.id.tv_menu_feedback -> {
                 mActivityMainBinding?.drawerLayout?.closeDrawer(GravityCompat.START)
-                replaceFragment(AdminFeedbackFragment())
+                replaceFragment(FeedbackFragment())
                 mTypeScreen = TYPE_FEEDBACK
                 initToolbar(getString(R.string.menu_feedback))
             }

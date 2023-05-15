@@ -176,6 +176,7 @@ class UploadFragment : Fragment() {
         fileName = "${mFragmentUploadBinding?.edtTitle?.text}_${formatter.format(now)}"
 
         // upload image
+        activity!!.showProgressDialog(true)
         val imageStorageRef = storage.getReference("images/$fileName")
         imageStorageRef.putFile(imageUri!!).addOnSuccessListener {
             // handle when upload image success
@@ -185,11 +186,16 @@ class UploadFragment : Fragment() {
             uploadAudio()
         }.addOnFailureListener {
             GlobalFuntion.showToastMessage(activity, getString(R.string.msg_upload_image_fail))
+            activity.showProgressDialog(false)
         }
 
     }
 
     private fun uploadAudio() {
+        if (activity == null) {
+            return
+        }
+        val activity = activity as MainActivity?
         val audioStorageRef = storage.getReference("audios/$fileName")
         audioStorageRef.putFile(audioUri!!).addOnSuccessListener {
             // handle when upload audio success
@@ -199,10 +205,15 @@ class UploadFragment : Fragment() {
             uploadSongData()
         }.addOnFailureListener {
             GlobalFuntion.showToastMessage(activity, getString(R.string.msg_upload_image_fail))
+            activity!!.showProgressDialog(false)
         }
     }
 
     private fun uploadSongData() {
+        if (activity == null) {
+            return
+        }
+        val activity = activity as MainActivity?
         // get imageUriFirebase
         val storageRefDownLoadUri = Firebase.storage.reference.child("images/$fileName")
         storageRefDownLoadUri.downloadUrl.addOnSuccessListener { uri ->
@@ -213,10 +224,15 @@ class UploadFragment : Fragment() {
         }.addOnFailureListener { exception ->
             // Handle any errors
             Log.e("khoa", "Failed to get download URL: ${exception.message}")
+            activity!!.showProgressDialog(false)
         }
     }
 
     private fun addSong(song: Song) {
+        if (activity == null) {
+            return
+        }
+        val activity = activity as MainActivity?
         val database = MyApplication[activity].getSongsDatabaseReference()
         val newSongRef = database?.child(song.getId().toString())
         newSongRef?.setValue(song)
@@ -225,14 +241,20 @@ class UploadFragment : Fragment() {
                 Log.d("khoa", "Song genre: ${song.getGenre()}")
 
                 // Add success logic here
+                activity!!.showProgressDialog(false)
             }
             ?.addOnFailureListener {
                 Log.w("khoa", "Error adding song to database", it)
                 // Add failure logic here
+                activity!!.showProgressDialog(false)
             }
     }
 
     private fun updateAudioUri() {
+        if (activity == null) {
+            return
+        }
+        val activity = activity as MainActivity?
         val storageRefDownLoadUri = Firebase.storage.reference.child("audios/$fileName")
         storageRefDownLoadUri.downloadUrl.addOnSuccessListener { uri ->
             Log.d("khoa", "Download audio URL: $uri")
@@ -241,10 +263,15 @@ class UploadFragment : Fragment() {
         }.addOnFailureListener { exception ->
             // Handle any errors
             Log.e("khoa", "Failed to get download URL: ${exception.message}")
+            activity!!.showProgressDialog(false)
         }
     }
 
     private fun getNextSongId() {
+        if (activity == null) {
+            return
+        }
+        val activity = activity as MainActivity?
         MyApplication[activity].getSongsDatabaseReference()?.get()
             ?.addOnSuccessListener { snapshot ->
                 val numSongs = snapshot.childrenCount.toInt()
@@ -270,6 +297,7 @@ class UploadFragment : Fragment() {
 //            // Handle error
                 exception ->
             Log.e("khoa", "Failed to get download URL: ${exception.message}")
+                activity!!.showProgressDialog(false)
 
         }
     }
