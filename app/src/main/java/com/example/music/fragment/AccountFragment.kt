@@ -23,6 +23,7 @@ class AccountFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         mFragmentAccountBinding = FragmentAccountBinding.inflate(inflater,container, false);
+        mFragmentAccountBinding?.tvAccountName?.setText(firebaseAuth.currentUser?.email);
         mFragmentAccountBinding?.btnLogout?.setOnClickListener{onClickLogout()}
         return mFragmentAccountBinding?.root;
     }
