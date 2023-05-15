@@ -141,6 +141,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
                 mTypeScreen = TYPE_ALL_SONGS
                 initToolbar(getString(R.string.menu_all_songs))
                 displayLayoutPlayAll()
+                displayShuffle()
             }
             R.id.tv_menu_featured_songs -> {
                 mActivityMainBinding?.drawerLayout?.closeDrawer(GravityCompat.START)
@@ -148,6 +149,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
                 mTypeScreen = TYPE_FEATURED_SONGS
                 initToolbar(getString(R.string.menu_featured_songs))
                 displayLayoutPlayAll()
+                displayShuffle()
             }
             R.id.tv_menu_popular_songs -> {
                 mActivityMainBinding?.drawerLayout?.closeDrawer(GravityCompat.START)
@@ -166,14 +168,12 @@ class MainActivity : BaseActivity(), View.OnClickListener {
                 replaceFragment(FeedbackFragment())
                 mTypeScreen = TYPE_FEEDBACK
                 initToolbar(getString(R.string.menu_feedback))
-                displayLayoutPlayAll()
             }
             R.id.tv_menu_contact -> {
                 mActivityMainBinding?.drawerLayout?.closeDrawer(GravityCompat.START)
                 replaceFragment(ContactFragment())
                 mTypeScreen = TYPE_CONTACT
                 initToolbar(getString(R.string.menu_contact))
-                displayLayoutPlayAll()
             }
             R.id.tv_menu_account -> {
                 mActivityMainBinding?.drawerLayout?.closeDrawer(GravityCompat.START)
