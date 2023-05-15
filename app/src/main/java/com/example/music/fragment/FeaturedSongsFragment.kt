@@ -5,12 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.music.MyApplication
 import com.example.music.R
 import com.example.music.activity.MainActivity
 import com.example.music.activity.PlayMusicActivity
 import com.example.music.adapter.SongAdapter
+import com.example.music.adapter.SongGridAdapter
 import com.example.music.constant.Constant
 import com.example.music.constant.GlobalFuntion
 import com.example.music.databinding.FragmentFeaturedSongsBinding
@@ -60,14 +62,23 @@ class FeaturedSongsFragment : Fragment() {
         if (activity == null) {
             return
         }
-        val linearLayoutManager = LinearLayoutManager(activity)
-        mFragmentFeaturedSongsBinding?.rcvData?.layoutManager = linearLayoutManager
-        val songAdapter = SongAdapter(mListSong, object : IOnClickSongItemListener {
+//        val linearLayoutManager = LinearLayoutManager(activity)
+//        mFragmentFeaturedSongsBinding?.rcvData?.layoutManager = linearLayoutManager
+//        val songAdapter = SongAdapter(mListSong, object : IOnClickSongItemListener {
+//            override fun onClickItemSong(song: Song) {
+//                goToSongDetail(song)
+//            }
+//        })
+//        mFragmentFeaturedSongsBinding?.rcvData?.adapter = songAdapter
+        val gridLayoutManager = GridLayoutManager(activity, 2)
+
+        mFragmentFeaturedSongsBinding?.rcvData?.layoutManager = gridLayoutManager
+        val songGridAdapter = SongGridAdapter(mListSong, object : IOnClickSongItemListener {
             override fun onClickItemSong(song: Song) {
                 goToSongDetail(song)
             }
         })
-        mFragmentFeaturedSongsBinding?.rcvData?.adapter = songAdapter
+        mFragmentFeaturedSongsBinding?.rcvData?.adapter = songGridAdapter
     }
 
     private fun goToSongDetail(song: Song) {
