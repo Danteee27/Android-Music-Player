@@ -267,5 +267,10 @@ class MusicService : Service(), OnPreparedListener, OnCompletionListener {
                 mListSongPlaying = ArrayList()
             }
         }
+        fun initialListSongPlaying(){
+            if (mListSongPlaying == null) {
+                mListSongPlaying = ArrayList()
+            }
+        }
     }
 }

@@ -75,8 +75,9 @@ class GenreSongsFragment(private val genre: Genre?) : Fragment() {
     }
 
     private fun goToSongDetail(song: Song) {
-        MusicService.clearListSongPlaying()
-        MusicService.mListSongPlaying?.add(song)
+//        MusicService.clearListSongPlaying()
+        MusicService.initialListSongPlaying()
+        MusicService.mListSongPlaying?.add(0,song)
         MusicService.isPlaying = false
         GlobalFuntion.startMusicService(activity, Constant.PLAY, 0)
         GlobalFuntion.startActivity(activity, PlayMusicActivity::class.java)
