@@ -7,9 +7,9 @@
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:backgroundTint="@color/white"
-        android:color="@color/colorPrimaryDark"
+        android:layout_width="92dp"
+        android:layout_height="27dp"
+        android:layout_margin="4dp"
+        android:background="@drawable/bg_white_shape_border_color_main"
         android:text="Button" />
 </FrameLayout>

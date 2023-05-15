@@ -51,12 +51,13 @@ class SongGridAdapter(private val mListSongs: MutableList<Song>?,
 
             val btnOption1 = popupView.btnList
             val btnOption2 = popupView.btnQueue
-            val activity = holder.itemView.context as? Activity
             // Set click listeners for the buttons
+            val activity = holder.itemView.context as? Activity
+            getUserList(activity)
             btnOption1.setOnClickListener {
+                val activity = btnOption1.context as? Activity
                 if (activity != null) {
                     getUserList(activity)
-
                     val adapter = CustomArrayAdapter(activity, userList, song.getId())
                     val popupWindow2 = ListPopupWindow(holder.itemView.context)
                     popupWindow2.setAdapter(adapter)
