@@ -40,7 +40,8 @@ class FeedbackFragment : Fragment() {
             GlobalFuntion.showToastMessage(activity, getString(R.string.comment_require))
         } else {
             activity!!.showProgressDialog(true)
-            val feedback = Feedback(strEmail, strComment)
+            val feedback = Feedback()
+            feedback.setFeedback(strEmail, strComment)
             MyApplication[getActivity()].getFeedbackDatabaseReference()
                     ?.child(System.currentTimeMillis().toString())
                     ?.setValue(feedback) { _: DatabaseError?, _: DatabaseReference? ->

@@ -1,7 +1,14 @@
 package com.example.music.model
 
-class Feedback(private var email: String?, private var comment: String?) {
+class Feedback() {
 
+    private var email: String? = null
+    private var comment: String? = null
+
+    fun setFeedback(email: String?,comment: String?){
+        this.email = email
+        this.comment = comment
+    }
 
 
     fun getEmail(): String? {

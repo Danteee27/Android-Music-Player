@@ -46,7 +46,7 @@ class AdminFeedbackFragment : Fragment() {
             ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (dataSnapshot in snapshot.children) {
-                   feedbackArrayList?.add(dataSnapshot.getValue(Feedback::class.java))
+                   feedbackArrayList.add(dataSnapshot.getValue(Feedback::class.java)!!)
                 }
 
             }
