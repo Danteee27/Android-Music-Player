@@ -109,7 +109,7 @@ class UploadFragment : Fragment() {
 
     private fun addSong(song: Song) {
         val database = MyApplication[activity].getSongsDatabaseReference()
-        val newSongRef = database?.push()
+        val newSongRef = database?.child(song.getId().toString())
         newSongRef?.setValue(song)
             ?.addOnSuccessListener {
                 Log.d("khoa", "Song added to database")
