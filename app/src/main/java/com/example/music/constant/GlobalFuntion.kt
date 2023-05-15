@@ -15,6 +15,7 @@ import android.os.Build
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
+import com.example.music.R
 import com.example.music.service.MusicReceiver
 import com.example.music.service.MusicService
 import java.text.Normalizer
@@ -132,6 +133,32 @@ object GlobalFuntion {
             "purpleGenre" -> return Color.parseColor("#745afc")
         }
         return Color.parseColor("#503750")
+    }
+
+    fun getResourceColorGenre(colorName:String?):Int{
+        when(colorName){
+            "greenGenre" -> return R.color.greenGenre
+            "blueGenre" -> return R.color.blueGenre
+            "orangeGenre" -> return R.color.orangeGenre
+            "pinkGenre" -> return R.color.pinkGenre
+            "purpleGenre" -> return R.color.purpleGenre
+        }
+        return R.color.defaultGenre
+    }
+
+    fun getResourceBackgroundGenre(colorName:String?):Int{
+        when(colorName){
+            "greenGenre" -> return R.drawable.bg_green_genre_shape_corner_6
+            "blueGenre" -> return R.drawable.bg_blue_genre_shape_corner_6
+            "orangeGenre" -> return R.drawable.bg_orange_genre_shape_corner_6
+            "pinkGenre" -> return R.drawable.bg_pink_genre_shape_corner_6
+            "purpleGenre" -> return R.drawable.bg_purple_genre_shape_corner_6
+            "darkPinkGenre" -> return R.drawable.bg_dark_pink_genre_shape_corner_6
+            "darkRedGenre" -> return R.drawable.bg_dark_red_genre_shape_corner_6
+            "lightGreenGenre" -> return R.drawable.bg_light_green_genre_shape_corner_6
+            "lightPurpleGenre" -> return R.drawable.bg_light_purple_genre_shape_corner_6
+        }
+        return R.drawable.bg_default_genre_shape_corner_6
     }
 
     fun startMusicService(ctx: Context?, action: Int, songPosition: Int) {

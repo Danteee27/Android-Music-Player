@@ -37,4 +37,17 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="xam2">#393838</color>
+
+    <color name="greenGenre">#1b8a16</color>
+    <color name="blueGenre">#1a74e9</color>
+    <color name="orangeGenre">#d63e14</color>
+    <color name="pinkGenre">#da118c</color>
+    <color name="purpleGenre">#745afc</color>
+    <color name="defaultGenre">#503750</color>
+    <color name="darkPink">#E60A5D</color>
+    <color name="lightPurple">#8D67AA</color>
+    <color name="lightGreenGenre">#0D6952</color>
+    <color name="darkRed">#8B1733</color>
+
+
 </resources>
