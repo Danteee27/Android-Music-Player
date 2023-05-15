@@ -10,15 +10,17 @@ class Song : Serializable {
     private var image: String? = null
     private var url: String? = null
     private var artist: String? = null
+    private var genre: String? = null
     private var latest = false
     private var featured = false
     private var count = 0
     private var isPlaying = false
     private var liked = false
 
+
     fun setSong(
         id: Int,
-        title: String?, image: String?, url: String?, artist: String?,
+        title: String?, image: String?, url: String?, artist: String?,genre: String?,
         latest:Boolean=false,
         featured: Boolean=false) {
         this.id = id
@@ -26,6 +28,7 @@ class Song : Serializable {
         this.image = image
         this.url = url
         this.artist = artist
+        this.genre = genre
         this.latest = latest
         this.featured = featured
     }
@@ -53,6 +56,14 @@ class Song : Serializable {
 
     fun setTitle(title: String?) {
         this.title = title
+    }
+
+    fun getGenre(): String? {
+        return genre
+    }
+
+    fun setGenre(genre: String?) {
+        this.genre = genre
     }
 
     fun getImage(): String? {
