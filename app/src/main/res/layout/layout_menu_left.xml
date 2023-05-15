@@ -8,6 +8,15 @@
     android:layout_marginEnd="-65dp"
     android:orientation="horizontal">
 
+    <ScrollView
+
+        android:id="@+id/upload_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0"
+        android:fillViewport="true"
+        android:paddingBottom="@dimen/define_dimen_5"
+        tools:context=".fragment.UploadFragment">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -200,31 +209,6 @@
 <!--            android:layout_height="0.5dp"-->
 <!--            android:background="@color/white" />-->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/define_dimen_20"
-            android:baselineAligned="true"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <androidx.constraintlayout.utils.widget.ImageFilterView
-                android:id="@+id/ic_feedback"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:src="@drawable/ic_feedback"
-                app:tint="@color/white"
-                tools:srcCompat="@drawable/ic_feedback" />
-
-            <TextView
-                android:id="@+id/tv_menu_feedback"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/define_dimen_14"
-                android:text="@string/menu_feedback"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_xnormal" />
-        </LinearLayout>
 
 
 
@@ -287,9 +271,62 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/define_dimen_20"
+            android:baselineAligned="true"
+            android:gravity="center"
+            android:orientation="horizontal">
 
+            <androidx.constraintlayout.utils.widget.ImageFilterView
+                android:id="@+id/ic_library"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/ic_library"
+                app:tint="@color/white"
+                tools:srcCompat="@drawable/ic_library" />
+
+            <TextView
+                android:id="@+id/tv_menu_library"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/define_dimen_14"
+                android:text="@string/menu_library"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_xnormal" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/define_dimen_20"
+            android:baselineAligned="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.constraintlayout.utils.widget.ImageFilterView
+                android:id="@+id/ic_feedback"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/ic_feedback"
+                app:tint="@color/white"
+                tools:srcCompat="@drawable/ic_feedback" />
+
+            <TextView
+                android:id="@+id/tv_menu_feedback"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/define_dimen_14"
+                android:text="@string/menu_feedback"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_xnormal" />
+        </LinearLayout>
 
     </LinearLayout>
+    </ScrollView>
 
     <RelativeLayout
         android:id="@+id/layout_close"
