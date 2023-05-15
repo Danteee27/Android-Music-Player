@@ -4,6 +4,7 @@ import android.app.Application
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
+import android.graphics.Color
 import android.os.Build
 import androidx.fragment.app.Fragment
 import com.example.music.constant.Constant
@@ -36,6 +37,10 @@ class MyApplication : Application() {
         return mFirebaseDatabase?.getReference("/songs")
     }
 
+    fun getGenresDatabaseReference(): DatabaseReference? {
+        return mFirebaseDatabase?.getReference("/genres")
+    }
+
     fun getListDatabaseReference(uid: String?): DatabaseReference? {
         return mFirebaseDatabase?.getReference("/playList/$uid")
     }
@@ -52,6 +57,8 @@ class MyApplication : Application() {
     fun getLikedDatabaseReference(songId: Int): DatabaseReference? {
         return mFirebaseDatabase?.getReference("songs/$songId/liked");
     }
+
+
 
     companion object {
         const val CHANNEL_ID: String = "channel_music_basic_id"
