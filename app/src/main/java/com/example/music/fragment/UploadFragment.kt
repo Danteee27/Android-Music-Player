@@ -10,11 +10,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import com.example.music.MyApplication
 import com.example.music.R
 import com.example.music.activity.MainActivity
+import com.example.music.adapter.GenreAdapter
 import com.example.music.constant.GlobalFuntion
 import com.example.music.databinding.FragmentUploadBinding
+import com.example.music.model.Genre
 import com.example.music.model.Song
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -50,12 +53,68 @@ class UploadFragment : Fragment() {
 
     private fun initialComponent() {
 
+        initialSpinerGenre()
         mFragmentUploadBinding?.tvSelectImage?.setOnClickListener { selectImage() }
         mFragmentUploadBinding?.tvSelectAudio?.setOnClickListener { selectAudio() }
         mFragmentUploadBinding?.tvUpload?.setOnClickListener { onClickUpload() }
     }
 
-//    @SuppressLint("SetTextI18n")
+    private fun initialSpinerGenre() {
+//        mFragmentUploadBinding?.spinnerGenre?.
+        if (activity == null) {
+            return
+        }
+        val activity = activity as MainActivity?
+        val genreAdapter: GenreAdapter =
+            GenreAdapter(requireContext(), R.layout.item_selected_genre, getListGenre())
+        mFragmentUploadBinding?.spinnerGenre?.adapter = genreAdapter
+        mFragmentUploadBinding?.spinnerGenre?.setOnItemSelectedListener(object :
+            AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                GlobalFuntion.showToastMessage(activity, genreAdapter.getItem(position)?.getName())
+                // Do something when an item is selected
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                // Do something when nothing is selected
+            }
+        })
+
+    }
+
+    private fun getListGenre(): MutableList<Genre> {
+        val list: MutableList<Genre> = mutableListOf()
+        val pop = Genre()
+        val acoustic = Genre()
+        val remix = Genre()
+        val edm = Genre()
+        val nhacTre = Genre()
+        pop.setName("Pop")
+        pop.setColor("greenGenre")
+        acoustic.setName("Acoustic")
+        acoustic.setColor("blueGenre")
+        remix.setName("Remix")
+        remix.setColor("orangeGenre")
+        edm.setName("EDM")
+        edm.setColor("pinkGenre")
+        nhacTre.setName("Nhạc Trẻ")
+        nhacTre.setColor("purpleGenre")
+
+        list.add(pop)
+        list.add(acoustic)
+        list.add(remix)
+        list.add(edm)
+        list.add(nhacTre)
+
+        return list
+    }
+
+
     @SuppressLint("SetTextI18n")
     private fun onClickUpload() {
         if (activity == null) {
@@ -113,6 +172,8 @@ class UploadFragment : Fragment() {
         newSongRef?.setValue(song)
             ?.addOnSuccessListener {
                 Log.d("khoa", "Song added to database")
+                Log.d("khoa", "Song genre: ${song.getGenre()}")
+
                 // Add success logic here
             }
             ?.addOnFailureListener {
@@ -134,25 +195,26 @@ class UploadFragment : Fragment() {
     }
 
     private fun getNextSongId() {
-        MyApplication[activity].getSongsDatabaseReference()?.get()?.addOnSuccessListener {
-                snapshot ->
-            val numSongs = snapshot.childrenCount.toInt()
-            nextSongId = numSongs + 1
-            // Do something with the number of songs
-            Log.d("khoa", "Next song ID URL: $nextSongId")
+        MyApplication[activity].getSongsDatabaseReference()?.get()
+            ?.addOnSuccessListener { snapshot ->
+                val numSongs = snapshot.childrenCount.toInt()
+                nextSongId = numSongs + 1
+                // Do something with the number of songs
+                Log.d("khoa", "Next song ID URL: $nextSongId")
 
-            val title = mFragmentUploadBinding?.edtTitle?.text
-            val artist = mFragmentUploadBinding?.edtArtist?.text
-            song.setSong(
-                nextSongId,
-                title.toString(),
-                imageUriFirebase.toString(),
-                audioUriFirebase.toString(),
-                artist.toString()
-            )
-            addSong(song)
-            Log.d("khoa","Next song ID URL: ${song.getId()}")
-        }?.addOnFailureListener {
+                val title = mFragmentUploadBinding?.edtTitle?.text
+                val artist = mFragmentUploadBinding?.edtArtist?.text
+                song.setSong(
+                    nextSongId,
+                    title.toString(),
+                    imageUriFirebase.toString(),
+                    audioUriFirebase.toString(),
+                    artist.toString(),
+                    mFragmentUploadBinding?.spinnerGenre?.selectedItem.toString()
+                )
+                addSong(song)
+                Log.d("khoa", "Next song ID URL: ${song.getId()}")
+            }?.addOnFailureListener {
 //            // Handle error
                 exception ->
             Log.e("khoa", "Failed to get download URL: ${exception.message}")
