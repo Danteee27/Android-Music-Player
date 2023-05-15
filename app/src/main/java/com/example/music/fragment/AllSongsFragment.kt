@@ -5,12 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.music.MyApplication
 import com.example.music.R
 import com.example.music.activity.MainActivity
 import com.example.music.activity.PlayMusicActivity
 import com.example.music.adapter.SongAdapter
+import com.example.music.adapter.SongGridAdapter
 import com.example.music.constant.Constant
 import com.example.music.constant.GlobalFuntion
 import com.example.music.databinding.FragmentAllSongsBinding
@@ -27,7 +29,11 @@ class AllSongsFragment : Fragment() {
     private var mFragmentAllSongsBinding: FragmentAllSongsBinding? = null
     private var mListSong: MutableList<Song>? = null
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         mFragmentAllSongsBinding = FragmentAllSongsBinding.inflate(inflater, container, false)
         getListAllSongs()
         initListener()
@@ -38,34 +44,45 @@ class AllSongsFragment : Fragment() {
         if (activity == null) {
             return
         }
-        MyApplication[activity].getSongsDatabaseReference()?.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                mListSong = ArrayList()
-                for (dataSnapshot in snapshot.children) {
-                    val song: Song = dataSnapshot.getValue<Song>(Song::class.java) ?: return
-                    mListSong?.add(0, song)
+        MyApplication[activity].getSongsDatabaseReference()
+            ?.addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    mListSong = ArrayList()
+                    for (dataSnapshot in snapshot.children) {
+                        val song: Song = dataSnapshot.getValue<Song>(Song::class.java) ?: return
+                        mListSong?.add(0, song)
+                    }
+                    displayListAllSongs()
                 }
-                displayListAllSongs()
-            }
 
-            override fun onCancelled(error: DatabaseError) {
-                GlobalFuntion.showToastMessage(activity, getString(R.string.msg_get_date_error))
-            }
-        })
+                override fun onCancelled(error: DatabaseError) {
+                    GlobalFuntion.showToastMessage(activity, getString(R.string.msg_get_date_error))
+                }
+            })
     }
 
     private fun displayListAllSongs() {
         if (activity == null) {
             return
         }
-        val linearLayoutManager = LinearLayoutManager(activity)
-        mFragmentAllSongsBinding?.rcvData?.layoutManager = linearLayoutManager
-        val songAdapter = SongAdapter(mListSong, object : IOnClickSongItemListener {
+//        val linearLayoutManager = LinearLayoutManager(activity)
+//        mFragmentAllSongsBinding?.rcvData?.layoutManager = linearLayoutManager
+//        val songAdapter = SongAdapter(mListSong, object : IOnClickSongItemListener {
+//            override fun onClickItemSong(song: Song) {
+//                goToSongDetail(song)
+//            }
+//        })
+//        mFragmentAllSongsBinding?.rcvData?.adapter = songAdapter
+        val gridLayoutManager = GridLayoutManager(activity, 2)
+
+        mFragmentAllSongsBinding?.rcvData?.layoutManager = gridLayoutManager
+        val songGridAdapter = SongGridAdapter(mListSong, object : IOnClickSongItemListener {
             override fun onClickItemSong(song: Song) {
                 goToSongDetail(song)
             }
         })
-        mFragmentAllSongsBinding?.rcvData?.adapter = songAdapter
+
+        mFragmentAllSongsBinding?.rcvData?.adapter = songGridAdapter
     }
 
     private fun goToSongDetail(song: Song) {
