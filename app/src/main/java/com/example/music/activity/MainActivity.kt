@@ -114,7 +114,12 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         initToolbar(getString(R.string.menu_new_songs))
         displayLayoutPlayAll()
     }
-
+    fun openListScreen() {
+        replaceFragment(ListFragment())
+        mTypeScreen = TYPE_LIST
+        initToolbar("My Playlists")
+        displayLayoutPlayAll()
+    }
     override fun onClick(v: View) {
         when (v.id) {
             R.id.layout_close -> mActivityMainBinding?.drawerLayout?.closeDrawer(GravityCompat.START)
@@ -147,8 +152,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
             }
             R.id.tv_menu_mylist -> {
                 mActivityMainBinding?.drawerLayout?.closeDrawer(GravityCompat.START)
-                replaceFragment(ListFragment())
-                initToolbar("My Playlists")
+                openListScreen()
             }
             R.id.tv_menu_feedback -> {
                 mActivityMainBinding?.drawerLayout?.closeDrawer(GravityCompat.START)
@@ -213,6 +217,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
             TYPE_POPULAR_SONGS -> mActivityMainBinding?.header?.layoutPlayAll?.visibility = View.VISIBLE
             TYPE_NEW_SONGS -> mActivityMainBinding?.header?.layoutPlayAll?.visibility = View.VISIBLE
             TYPE_GENRE_SONGS -> mActivityMainBinding?.header?.layoutPlayAll?.visibility = View.VISIBLE
+            TYPE_LIST-> mActivityMainBinding?.header?.layoutPlayAll?.visibility = View.VISIBLE
             else -> mActivityMainBinding?.header?.layoutPlayAll?.visibility = View.GONE
         }
     }
@@ -303,5 +308,6 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         const val TYPE_UPLOAD = 8
         const val TYPE_LIBRARY = 9
         const val TYPE_GENRE_SONGS = 10
+        const val TYPE_LIST = 11
     }
 }

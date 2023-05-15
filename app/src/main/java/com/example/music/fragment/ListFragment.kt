@@ -1,5 +1,4 @@
     package com.example.music.fragment
-
     import android.app.Activity
     import android.os.Bundle
     import android.util.Log
@@ -14,15 +13,16 @@
     import android.widget.EditText
     import android.widget.ImageButton
     import android.widget.TextView
+    import android.content.Context
+    import android.content.Intent
+    import android.content.IntentFilter
+    import androidx.appcompat.app.AppCompatActivity
+    import androidx.fragment.app.FragmentManager
     import com.example.music.MyApplication
     import com.example.music.R
     import com.example.music.adapter.SongAdapter
     import com.example.music.constant.GlobalFuntion
-    import com.example.music.databinding.FragmentAllSongsBinding
     import com.example.music.databinding.FragmentListBinding
-    import com.example.music.fragment.placeholder.PlaceholderContent
-    import com.example.music.listener.IOnClickSongItemListener
-    import com.example.music.model.Song
     import com.google.firebase.auth.FirebaseAuth
     import com.google.firebase.database.DataSnapshot
     import com.google.firebase.database.DatabaseError
@@ -32,7 +32,10 @@
     /**
      * A fragment representing a list of Items.
      */
-
+    private fun replaceFragment(fragmentManager: FragmentManager, fragment: Fragment) {
+        val transaction = fragmentManager.beginTransaction()
+        transaction.replace(R.id.content_frame, fragment).commitAllowingStateLoss()
+    }
     class MyAdapter(private var userList: List<String>) :
         RecyclerView.Adapter<MyAdapter.ViewHolder?>() {
 
@@ -52,6 +55,7 @@
 
         inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             private val deleteButton: ImageButton = itemView.findViewById(R.id.delete)
+            private val viewButton: Button = itemView.findViewById(R.id.view)
             fun bind(listName: String) {
                 val listNameTextView = itemView.findViewById<TextView>(R.id.textView)
                 listNameTextView.text = listName
@@ -74,9 +78,17 @@
 
                     }
                 }
+                viewButton.setOnClickListener {
+                    val fragment = SongListFragment()
+                    val activity = itemView.context as AppCompatActivity
+                    val bundle = Bundle().apply {
+                        putString("listName", listName)
+                    }
+                    fragment.arguments = bundle
+                    replaceFragment(activity.supportFragmentManager, fragment)
+                }
             }
         }
-
     }
 
     private fun deleteItemFromDatabase(activity: Activity, playlistName: String,firebaseAuth: FirebaseAuth) {

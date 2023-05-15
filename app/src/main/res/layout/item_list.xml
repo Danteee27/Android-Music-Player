@@ -8,10 +8,10 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="267dp"
+        android:layout_width="203dp"
         android:layout_height="45dp"
-        android:padding="8dp"
         android:layout_marginStart="50dp"
+        android:padding="8dp"
         android:text="" />
 
     <ImageButton
@@ -28,4 +28,12 @@
         android:layout_width="47dp"
         android:layout_height="37dp"
         app:srcCompat="@drawable/ic_playlist" />
+
+    <Button
+        android:id="@+id/view"
+        android:layout_width="59dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="260dp"
+        android:layout_marginTop="4dp"
+        android:text="View" />
 </FrameLayout>

@@ -192,7 +192,7 @@
                 android:layout_height="35dp"
                 android:src="@drawable/ic_contact"
                 app:tint="@color/white"
-                tools:srcCompat="@drawable/ic_contact" />
+                tools:srcCompat="@drawable/ic_playlist" />
 
             <TextView
                 android:id="@+id/tv_menu_mylist"
