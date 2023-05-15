@@ -41,6 +41,8 @@ class UploadFragment : Fragment() {
     private var fileName = ""
     private var song = Song()
     private var nextSongId = -1
+    private var isFeatured = false
+    private var isLatest = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,6 +56,24 @@ class UploadFragment : Fragment() {
     private fun initialComponent() {
 
         initialSpinerGenre()
+        mFragmentUploadBinding?.checkBoxFeatured?.setOnCheckedChangeListener  { buttonView, isChecked ->
+            if (isChecked) {
+                isFeatured = true
+                Log.d("khoa","Is featured")
+            } else {
+                isFeatured = false
+                Log.d("khoa","Is not featured")
+            }
+        }
+        mFragmentUploadBinding?.checkBoxLatest?.setOnCheckedChangeListener  { buttonView, isChecked ->
+            if (isChecked) {
+                isFeatured = true
+                Log.d("khoa","Is latest")
+            } else {
+                isFeatured = false
+                Log.d("khoa","Is not latest")
+            }
+        }
         mFragmentUploadBinding?.tvSelectImage?.setOnClickListener { selectImage() }
         mFragmentUploadBinding?.tvSelectAudio?.setOnClickListener { selectAudio() }
         mFragmentUploadBinding?.tvUpload?.setOnClickListener { onClickUpload() }
@@ -230,7 +250,9 @@ class UploadFragment : Fragment() {
                     imageUriFirebase.toString(),
                     audioUriFirebase.toString(),
                     artist.toString(),
-                    mFragmentUploadBinding?.spinnerGenre?.selectedItem.toString()
+                    mFragmentUploadBinding?.spinnerGenre?.selectedItem.toString(),
+                    isLatest,
+                    isFeatured
                 )
                 addSong(song)
                 Log.d("khoa", "Next song ID URL: ${song.getId()}")

@@ -178,7 +178,10 @@ class MainActivity : BaseActivity(), View.OnClickListener {
             R.id.tv_menu_account -> {
                 mActivityMainBinding?.drawerLayout?.closeDrawer(GravityCompat.START)
                 replaceFragment(AccountFragment())
+                mTypeScreen = TYPE_ACCOUNT
                 initToolbar("Account")
+                displayLayoutPlayAll()
+                displayShuffle()
             }
             R.id.tv_menu_upload->{
                 mActivityMainBinding?.drawerLayout?.closeDrawer(GravityCompat.START)
@@ -224,7 +227,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
             TYPE_POPULAR_SONGS -> mActivityMainBinding?.header?.layoutPlayAll?.visibility = View.VISIBLE
             TYPE_NEW_SONGS -> mActivityMainBinding?.header?.layoutPlayAll?.visibility = View.VISIBLE
             TYPE_GENRE_SONGS -> mActivityMainBinding?.header?.layoutPlayAll?.visibility = View.VISIBLE
-            TYPE_LIST-> mActivityMainBinding?.header?.layoutPlayAll?.visibility = View.VISIBLE
+//            TYPE_LIST-> mActivityMainBinding?.header?.layoutPlayAll?.visibility = View.VISIBLE
             else -> mActivityMainBinding?.header?.layoutPlayAll?.visibility = View.GONE
         }
     }
@@ -236,7 +239,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
             TYPE_POPULAR_SONGS -> mActivityMainBinding?.header?.layoutShuffle?.visibility = View.VISIBLE
             TYPE_NEW_SONGS -> mActivityMainBinding?.header?.layoutShuffle?.visibility = View.VISIBLE
             TYPE_GENRE_SONGS -> mActivityMainBinding?.header?.layoutShuffle?.visibility = View.VISIBLE
-            TYPE_LIST-> mActivityMainBinding?.header?.layoutShuffle?.visibility = View.VISIBLE
+//            TYPE_LIST-> mActivityMainBinding?.header?.layoutShuffle?.visibility = View.VISIBLE
             else -> mActivityMainBinding?.header?.layoutShuffle?.visibility = View.GONE
         }
     }
@@ -328,5 +331,6 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         const val TYPE_LIBRARY = 9
         const val TYPE_GENRE_SONGS = 10
         const val TYPE_LIST = 11
+        const val TYPE_ACCOUNT = 12
     }
 }
