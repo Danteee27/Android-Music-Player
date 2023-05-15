@@ -18,6 +18,7 @@ import com.example.music.constant.Constant
 import com.example.music.constant.GlobalFuntion
 import com.example.music.databinding.ActivityMainBinding
 import com.example.music.fragment.*
+import com.example.music.model.Genre
 import com.example.music.model.Song
 import com.example.music.service.MusicService
 import com.example.music.utils.GlideUtils
@@ -83,6 +84,20 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         replaceFragment(HomeFragment())
         mTypeScreen = TYPE_HOME
         initToolbar(getString(R.string.app_name))
+        displayLayoutPlayAll()
+    }
+
+    fun openAllSongsScreen(){
+        replaceFragment(AllSongsFragment())
+        mTypeScreen = TYPE_ALL_SONGS
+        initToolbar(getString(R.string.menu_all_songs))
+        displayLayoutPlayAll()
+    }
+
+    fun openGenreSongsScreen(genre:Genre?){
+        replaceFragment(GenreSongsFragment(genre))
+        mTypeScreen = TYPE_GENRE_SONGS
+        initToolbar(genre?.getName() ?:"Genre")
         displayLayoutPlayAll()
     }
 
@@ -192,6 +207,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
             TYPE_FEATURED_SONGS -> mActivityMainBinding?.header?.layoutPlayAll?.visibility = View.VISIBLE
             TYPE_POPULAR_SONGS -> mActivityMainBinding?.header?.layoutPlayAll?.visibility = View.VISIBLE
             TYPE_NEW_SONGS -> mActivityMainBinding?.header?.layoutPlayAll?.visibility = View.VISIBLE
+            TYPE_GENRE_SONGS -> mActivityMainBinding?.header?.layoutPlayAll?.visibility = View.VISIBLE
             else -> mActivityMainBinding?.header?.layoutPlayAll?.visibility = View.GONE
         }
     }
@@ -281,5 +297,6 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         const val TYPE_CONTACT = 7
         const val TYPE_UPLOAD = 8
         const val TYPE_LIBRARY = 9
+        const val TYPE_GENRE_SONGS = 10
     }
 }

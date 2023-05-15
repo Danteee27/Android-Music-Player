@@ -6,12 +6,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.music.MyApplication
 import com.example.music.R
+import com.example.music.activity.MainActivity
 import com.example.music.adapter.GenreGridAdapter
 import com.example.music.adapter.SongGridAdapter
 import com.example.music.constant.GlobalFuntion
+import com.example.music.databinding.ActivityMainBinding
 import com.example.music.databinding.FragmentLibraryBinding
 import com.example.music.listener.IOnClickGenreItemListener
 import com.example.music.listener.IOnClickSongItemListener
@@ -26,6 +29,7 @@ import java.util.*
 class LibraryFragment : Fragment() {
 
     var mFragmentLibraryBinding: FragmentLibraryBinding? = null
+//    var mActivityMainBinding : ActivityMainBinding? = null
     private var mListGenres: MutableList<Genre>? = null
 
     override fun onCreateView(
@@ -77,6 +81,9 @@ class LibraryFragment : Fragment() {
     }
 
     private fun goToGenreDetail(genre: Genre) {
+        val mainActivity = activity as MainActivity
+
+        mainActivity.openGenreSongsScreen(genre)
 
     }
 }
