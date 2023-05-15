@@ -2,6 +2,7 @@ package com.example.music.adapter
 
 import android.app.Activity
 import android.content.Context
+import android.text.TextUtils
 import android.view.*
 import android.widget.*
 import androidx.appcompat.widget.ListPopupWindow
@@ -30,7 +31,16 @@ class CustomArrayAdapter(context: Context, userList: List<String>, private val s
 
         val listNameTextView = listItemView.findViewById<TextView>(R.id.button3)
         val listName = getItem(position)
-        listNameTextView.text = listName
+        if (listName != null) {
+            if (listName.length > 10) {
+                val truncatedListName = TextUtils.ellipsize(listName, listNameTextView.paint, 100f, TextUtils.TruncateAt.END)
+                listNameTextView.text = truncatedListName
+            } else {
+                listNameTextView.text = listName
+            }
+        } else {
+            listNameTextView.text = ""
+        }
 
         listNameTextView.setOnClickListener {
             handleButtonClick(listName, songId)
