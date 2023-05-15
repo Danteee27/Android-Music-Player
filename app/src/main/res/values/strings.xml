@@ -68,4 +68,6 @@
     <string name="upload_audio">Audio</string>
     <string name="upload_image">Image</string>
     <string name="upload_select_image">Select image</string>
+    <string name="genre_name">Genre name</string>
+    <string name="menu_library">Library</string>
 </resources>
