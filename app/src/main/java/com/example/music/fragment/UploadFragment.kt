@@ -64,6 +64,7 @@ class UploadFragment : Fragment() {
         if (activity == null) {
             return
         }
+
         val activity = activity as MainActivity?
         val genreAdapter: GenreAdapter =
             GenreAdapter(requireContext(), R.layout.item_selected_genre, getListGenre())

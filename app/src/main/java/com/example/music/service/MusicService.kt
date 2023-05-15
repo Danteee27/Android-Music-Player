@@ -8,6 +8,7 @@ import android.media.MediaPlayer.OnCompletionListener
 import android.media.MediaPlayer.OnPreparedListener
 import android.os.Build
 import android.os.IBinder
+import android.util.Log
 import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
@@ -21,6 +22,8 @@ import com.example.music.utils.StringUtil
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
+import android.app.Activity
+import com.google.firebase.database.DatabaseReference
 import java.util.*
 
 class MusicService : Service(), OnPreparedListener, OnCompletionListener {
@@ -65,6 +68,23 @@ class MusicService : Service(), OnPreparedListener, OnCompletionListener {
         if (!StringUtil.isEmpty(songUrl)) {
             playMediaPlayer(songUrl)
         }
+
+//        if(mListSongPlaying?.get(mSongPosition) != null){
+//            val database = MyApplication[this].getSongsDatabaseReference()
+//            val updates = hashMapOf<String, Any>("count" to "${mListSongPlaying?.get(mSongPosition)?.getCount()?.plus(1)}")
+//            val newSongRef = database?.child(mListSongPlaying?.get(mSongPosition)?.getId().toString())?.updateChildren(updates, object : DatabaseReference.CompletionListener {
+//                override fun onComplete(databaseError: DatabaseError?, databaseReference: DatabaseReference) {
+//                    if (databaseError != null) {
+//                        // Update operation failed
+//                        // Handle the error here
+//                        Log.e("Update", "Update failed: ${databaseError.message}")
+//                    } else {
+//                        // Update operation succeeded
+//                        Log.d("Update", "Update succeeded")
+//                    }
+//                }
+//            })
+//        }
     }
 
     private fun pauseSong() {

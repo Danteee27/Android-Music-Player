@@ -72,6 +72,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         mActivityMainBinding?.menuLeft?.tvMenuFeedback?.setOnClickListener(this)
         mActivityMainBinding?.menuLeft?.tvMenuContact?.setOnClickListener(this)
         mActivityMainBinding?.menuLeft?.tvMenuLibrary?.setOnClickListener(this)
+        mActivityMainBinding?.menuLeft?.tvMenuAccount?.setOnClickListener(this)
         mActivityMainBinding?.layoutBottom?.imgPrevious?.setOnClickListener(this)
         mActivityMainBinding?.layoutBottom?.imgPlay?.setOnClickListener(this)
         mActivityMainBinding?.layoutBottom?.imgNext?.setOnClickListener(this)
