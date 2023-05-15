@@ -30,9 +30,9 @@ class GenreGridAdapter(
 
     override fun onBindViewHolder(holder: GenreGridViewHolder, position: Int) {
         val genre = mListGenres?.get(position) ?: return
-        holder.mItemGenreGridBinding.cardGenre.setCardBackgroundColor(GlobalFuntion.getHexColorGenre(genre.getColor()))
-//        holder.mItemGenreGridBinding.cardGenre.background = ContextCompat.getDrawable(requireContext(), R.drawable.)
-//        holder.mItemGenreGridBinding.he
+//        holder.mItemGenreGridBinding.cardGenre.setCardBackgroundColor(GlobalFuntion.getHexColorGenre(genre.getColor()))
+        holder.mItemGenreGridBinding.cardGenre.setBackgroundResource(GlobalFuntion.getResourceBackgroundGenre(genre.getColor()))
+        holder.mItemGenreGridBinding.tvGenreName.setText(genre.getName())
         holder.mItemGenreGridBinding.itemGenreGrid.setOnClickListener { iOnClickGenreItemListener?.onClickItemGenre(genre) }
     }
 
