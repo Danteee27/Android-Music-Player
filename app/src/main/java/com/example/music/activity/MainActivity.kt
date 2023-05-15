@@ -83,9 +83,10 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         mActivityMainBinding?.layoutBottom?.imgSong?.setOnClickListener(this)
         if(!isAdmin()){
             mActivityMainBinding?.menuLeft?.layoutMenuUpload?.visibility = View.GONE
+            mActivityMainBinding?.menuLeft?.tvMenuComment?.visibility = View.GONE
         }else{
             mActivityMainBinding?.menuLeft?.tvMenuUpload?.setOnClickListener(this)
-//            mActivityMainBinding?.menuLeft?.tvMenuFeedback
+            mActivityMainBinding?.menuLeft?.tvMenuComment?.setOnClickListener(this)
         }
     }
 
@@ -200,6 +201,12 @@ class MainActivity : BaseActivity(), View.OnClickListener {
                 mTypeScreen = TYPE_UPLOAD
                 initToolbar(getString(R.string.menu_upload))
             }
+            R.id.tv_menu_comment->{
+                mActivityMainBinding?.drawerLayout?.closeDrawer(GravityCompat.START)
+                replaceFragment(AdminFeedbackFragment())
+                mTypeScreen = TYPE_ADMIN_FEEDBACK
+                initToolbar(getString(R.string.menu_user_feedback))
+            }
             R.id.tv_menu_library->{
                 mActivityMainBinding?.drawerLayout?.closeDrawer(GravityCompat.START)
                 replaceFragment(LibraryFragment())
@@ -238,7 +245,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
             TYPE_POPULAR_SONGS -> mActivityMainBinding?.header?.layoutPlayAll?.visibility = View.VISIBLE
             TYPE_NEW_SONGS -> mActivityMainBinding?.header?.layoutPlayAll?.visibility = View.VISIBLE
             TYPE_GENRE_SONGS -> mActivityMainBinding?.header?.layoutPlayAll?.visibility = View.VISIBLE
-//            TYPE_LIST-> mActivityMainBinding?.header?.layoutPlayAll?.visibility = View.VISIBLE
+            TYPE_LIST-> mActivityMainBinding?.header?.layoutPlayAll?.visibility = View.VISIBLE
             else -> mActivityMainBinding?.header?.layoutPlayAll?.visibility = View.GONE
         }
     }
@@ -250,7 +257,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
             TYPE_POPULAR_SONGS -> mActivityMainBinding?.header?.layoutShuffle?.visibility = View.VISIBLE
             TYPE_NEW_SONGS -> mActivityMainBinding?.header?.layoutShuffle?.visibility = View.VISIBLE
             TYPE_GENRE_SONGS -> mActivityMainBinding?.header?.layoutShuffle?.visibility = View.VISIBLE
-//            TYPE_LIST-> mActivityMainBinding?.header?.layoutShuffle?.visibility = View.VISIBLE
+            TYPE_LIST-> mActivityMainBinding?.header?.layoutShuffle?.visibility = View.VISIBLE
             else -> mActivityMainBinding?.header?.layoutShuffle?.visibility = View.GONE
         }
     }
@@ -343,5 +350,6 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         const val TYPE_GENRE_SONGS = 10
         const val TYPE_LIST = 11
         const val TYPE_ACCOUNT = 12
+        const val TYPE_ADMIN_FEEDBACK = 13
     }
 }

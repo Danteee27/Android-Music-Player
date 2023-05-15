@@ -17,343 +17,373 @@
         android:fillViewport="true"
         android:paddingBottom="@dimen/define_dimen_5"
         tools:context=".fragment.UploadFragment">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:paddingStart="@dimen/define_dimen_8"
-        android:layout_toStartOf="@+id/layout_close"
-        android:background="@color/colorPrimaryDark"
-        android:orientation="vertical">
-
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:baselineAligned="true"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/layout_close"
+            android:background="@color/colorPrimaryDark"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/define_dimen_8">
 
-            <androidx.constraintlayout.utils.widget.ImageFilterView
-                android:id="@+id/ic_home"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_marginTop="@dimen/define_dimen_20"
-                android:src="@drawable/ic_home"
-                app:tint="@color/white"
-                tools:srcCompat="@drawable/ic_home" />
 
-            <TextView
-                android:id="@+id/tv_menu_home"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="true"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:id="@+id/ic_home"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="@dimen/define_dimen_20"
+                    android:src="@drawable/ic_home"
+                    app:tint="@color/white"
+                    tools:srcCompat="@drawable/ic_home" />
+
+                <TextView
+                    android:id="@+id/tv_menu_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/define_dimen_20"
+                    android:padding="@dimen/define_dimen_14"
+                    android:text="@string/menu_home"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_xnormal" />
+            </LinearLayout>
+
+            <!--        <View-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="0.5dp"-->
+            <!--            android:background="@color/white" />-->
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/define_dimen_20"
-                android:padding="@dimen/define_dimen_14"
-                android:text="@string/menu_home"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_xnormal" />
-        </LinearLayout>
+                android:baselineAligned="true"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-        <!--        <View-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="0.5dp"-->
-        <!--            android:background="@color/white" />-->
+                <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:id="@+id/ic_allSong"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_all_song"
+                    app:tint="@color/white"
+                    tools:srcCompat="@drawable/ic_all_song" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/define_dimen_20"
-            android:baselineAligned="true"
-            android:gravity="center"
-            android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tv_menu_all_songs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/define_dimen_14"
+                    android:text="@string/menu_all_songs"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_xnormal" />
+            </LinearLayout>
 
-            <androidx.constraintlayout.utils.widget.ImageFilterView
-                android:id="@+id/ic_allSong"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:src="@drawable/ic_all_song"
-                app:tint="@color/white"
-                tools:srcCompat="@drawable/ic_all_song" />
+            <!--        <View-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="0.5dp"-->
+            <!--            android:background="@color/white" />-->
 
-            <TextView
-                android:id="@+id/tv_menu_all_songs"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/define_dimen_14"
-                android:text="@string/menu_all_songs"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_xnormal" />
-        </LinearLayout>
+                android:layout_marginTop="@dimen/define_dimen_20"
+                android:baselineAligned="true"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-        <!--        <View-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="0.5dp"-->
-        <!--            android:background="@color/white" />-->
+                <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:id="@+id/ic_futuredSong"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_featured_song"
+                    app:tint="@color/white"
+                    tools:srcCompat="@drawable/ic_featured_song" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/define_dimen_20"
-            android:baselineAligned="true"
-            android:gravity="center"
-            android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tv_menu_featured_songs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/define_dimen_14"
+                    android:text="@string/menu_featured_songs"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_xnormal" />
+            </LinearLayout>
 
-            <androidx.constraintlayout.utils.widget.ImageFilterView
-                android:id="@+id/ic_futuredSong"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:src="@drawable/ic_featured_song"
-                app:tint="@color/white"
-                tools:srcCompat="@drawable/ic_featured_song" />
 
-            <TextView
-                android:id="@+id/tv_menu_featured_songs"
+            <!--        <View-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="0.5dp"-->
+            <!--            android:background="@color/white" />-->
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/define_dimen_14"
-                android:text="@string/menu_featured_songs"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_xnormal" />
-        </LinearLayout>
+                android:layout_marginTop="@dimen/define_dimen_20"
+                android:baselineAligned="true"
+                android:gravity="center"
+                android:orientation="horizontal">
 
+                <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:id="@+id/ic_popularSong"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_popular_song"
+                    app:tint="@color/white"
+                    tools:srcCompat="@drawable/ic_popular_song" />
 
-        <!--        <View-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="0.5dp"-->
-        <!--            android:background="@color/white" />-->
+                <TextView
+                    android:id="@+id/tv_menu_popular_songs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/define_dimen_14"
+                    android:text="@string/menu_popular_songs"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_xnormal" />
+            </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/define_dimen_20"
-            android:baselineAligned="true"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <androidx.constraintlayout.utils.widget.ImageFilterView
-                android:id="@+id/ic_popularSong"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:src="@drawable/ic_popular_song"
-                app:tint="@color/white"
-                tools:srcCompat="@drawable/ic_popular_song" />
-
-            <TextView
-                android:id="@+id/tv_menu_popular_songs"
+            <!--        <View-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="0.5dp"-->
+            <!--            android:background="@color/white" />-->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/define_dimen_14"
-                android:text="@string/menu_popular_songs"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_xnormal" />
-        </LinearLayout>
+                android:layout_marginTop="@dimen/define_dimen_20"
+                android:baselineAligned="true"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-        <!--        <View-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="0.5dp"-->
-        <!--            android:background="@color/white" />-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/define_dimen_20"
-            android:baselineAligned="true"
-            android:gravity="center"
-            android:orientation="horizontal">
+                <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:id="@+id/ic_newSong"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_new_song"
+                    app:tint="@color/white"
+                    tools:srcCompat="@drawable/ic_new_song" />
 
-            <androidx.constraintlayout.utils.widget.ImageFilterView
-                android:id="@+id/ic_newSong"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:src="@drawable/ic_new_song"
-                app:tint="@color/white"
-                tools:srcCompat="@drawable/ic_new_song" />
+                <TextView
+                    android:id="@+id/tv_menu_new_songs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/define_dimen_14"
+                    android:text="@string/menu_new_songs"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_xnormal" />
 
-            <TextView
-                android:id="@+id/tv_menu_new_songs"
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/define_dimen_14"
-                android:text="@string/menu_new_songs"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_xnormal" />
+                android:layout_marginTop="@dimen/define_dimen_20"
+                android:baselineAligned="true"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/define_dimen_20"
-            android:baselineAligned="true"
-            android:gravity="center"
-            android:orientation="horizontal">
+                <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:id="@+id/ic_mylist"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_contact"
+                    app:tint="@color/white"
+                    tools:srcCompat="@drawable/ic_playlist" />
 
-            <androidx.constraintlayout.utils.widget.ImageFilterView
-                android:id="@+id/ic_mylist"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:src="@drawable/ic_contact"
-                app:tint="@color/white"
-                tools:srcCompat="@drawable/ic_playlist" />
+                <TextView
+                    android:id="@+id/tv_menu_mylist"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/define_dimen_14"
+                    android:text="@string/menu_my_playlist"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_xnormal" />
 
-            <TextView
-                android:id="@+id/tv_menu_mylist"
+            </LinearLayout>
+            <!--        <View-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="0.5dp"-->
+            <!--            android:background="@color/white" />-->
+
+
+            <!--        <View-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="0.5dp"-->
+            <!--            android:background="@color/white" />-->
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/define_dimen_14"
-                android:text="@string/menu_my_playlist"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_xnormal" />
+                android:layout_marginTop="@dimen/define_dimen_20"
+                android:baselineAligned="true"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-        </LinearLayout>
-<!--        <View-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="0.5dp"-->
-<!--            android:background="@color/white" />-->
+                <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:id="@+id/ic_contact"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_contact"
+                    app:tint="@color/white"
+                    tools:srcCompat="@drawable/ic_contact" />
+
+                <TextView
+                    android:id="@+id/tv_menu_contact"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/define_dimen_14"
+                    android:text="@string/menu_contact"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_xnormal" />
+
+            </LinearLayout>
 
 
-
-
-<!--        <View-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="0.5dp"-->
-<!--            android:background="@color/white" />-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/define_dimen_20"
-            android:baselineAligned="true"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <androidx.constraintlayout.utils.widget.ImageFilterView
-                android:id="@+id/ic_account"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:src="@drawable/ic_account"
-                app:tint="@color/white"
-                tools:srcCompat="@drawable/ic_account" />
-
-            <TextView
-                android:id="@+id/tv_menu_account"
+            <LinearLayout
+                android:id="@+id/layout_menu_upload"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/define_dimen_14"
-                android:text="@string/menu_account"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_xnormal" />
+                android:layout_marginTop="@dimen/define_dimen_20"
+                android:baselineAligned="true"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-        </LinearLayout>        <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/define_dimen_20"
-        android:baselineAligned="true"
-        android:gravity="center"
-        android:orientation="horizontal">
+                <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:id="@+id/ic_upload"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_upload"
+                    app:tint="@color/white"
+                    tools:srcCompat="@drawable/ic_upload" />
 
-        <androidx.constraintlayout.utils.widget.ImageFilterView
-            android:id="@+id/ic_contact"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@drawable/ic_contact"
-            app:tint="@color/white"
-            tools:srcCompat="@drawable/ic_contact" />
+                <TextView
+                    android:id="@+id/tv_menu_upload"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/define_dimen_14"
+                    android:text="@string/menu_upload"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_xnormal" />
 
-        <TextView
-            android:id="@+id/tv_menu_contact"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/define_dimen_14"
-            android:text="@string/menu_contact"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_size_xnormal" />
+            </LinearLayout>
 
-    </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/layout_menu_upload"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/define_dimen_20"
-            android:baselineAligned="true"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <androidx.constraintlayout.utils.widget.ImageFilterView
-                android:id="@+id/ic_upload"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:src="@drawable/ic_upload"
-                app:tint="@color/white"
-                tools:srcCompat="@drawable/ic_upload" />
-
-            <TextView
-                android:id="@+id/tv_menu_upload"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/define_dimen_14"
-                android:text="@string/menu_upload"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_xnormal" />
+                android:layout_marginTop="@dimen/define_dimen_20"
+                android:baselineAligned="true"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-        </LinearLayout>
+                <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:id="@+id/ic_library"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_library"
+                    app:tint="@color/white"
+                    tools:srcCompat="@drawable/ic_library" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/define_dimen_20"
-            android:baselineAligned="true"
-            android:gravity="center"
-            android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tv_menu_library"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/define_dimen_14"
+                    android:text="@string/menu_library"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_xnormal" />
 
-            <androidx.constraintlayout.utils.widget.ImageFilterView
-                android:id="@+id/ic_library"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:src="@drawable/ic_library"
-                app:tint="@color/white"
-                tools:srcCompat="@drawable/ic_library" />
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/tv_menu_library"
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/define_dimen_14"
-                android:text="@string/menu_library"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_xnormal" />
+                android:layout_marginTop="@dimen/define_dimen_20"
+                android:baselineAligned="true"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-        </LinearLayout>
+                <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:id="@+id/ic_feedback"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_feedback"
+                    app:tint="@color/white"
+                    tools:srcCompat="@drawable/ic_feedback" />
 
+                <TextView
+                    android:id="@+id/tv_menu_feedback"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/define_dimen_14"
+                    android:text="@string/menu_feedback"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_xnormal" />
+            </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/define_dimen_20"
-            android:baselineAligned="true"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <androidx.constraintlayout.utils.widget.ImageFilterView
-                android:id="@+id/ic_feedback"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:src="@drawable/ic_feedback"
-                app:tint="@color/white"
-                tools:srcCompat="@drawable/ic_feedback" />
-
-            <TextView
-                android:id="@+id/tv_menu_feedback"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/define_dimen_14"
-                android:text="@string/menu_feedback"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_xnormal" />
+                android:layout_marginTop="@dimen/define_dimen_20"
+                android:baselineAligned="true"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:id="@+id/ic_comment"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_comment"
+                    app:tint="@color/white"
+                    tools:srcCompat="@drawable/ic_comment" />
+
+                <TextView
+                    android:id="@+id/tv_menu_comment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/define_dimen_14"
+                    android:text="@string/menu_comment"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_xnormal" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/define_dimen_20"
+                android:baselineAligned="true"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:id="@+id/ic_account"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_account"
+                    app:tint="@color/white"
+                    tools:srcCompat="@drawable/ic_account" />
+
+                <TextView
+                    android:id="@+id/tv_menu_account"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/define_dimen_14"
+                    android:text="@string/menu_account"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_xnormal" />
+
+            </LinearLayout>
+
+
         </LinearLayout>
-
-
-
-    </LinearLayout>
     </ScrollView>
 
     <RelativeLayout

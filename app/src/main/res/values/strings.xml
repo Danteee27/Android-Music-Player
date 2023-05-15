@@ -73,4 +73,6 @@
     <string name="menu_library">Library</string>
     <string name="featured">Featured</string>
     <string name="latest">Latest</string>
+    <string name="menu_comment">User Feedback</string>
+    <string name="menu_user_feedback">User Feedback</string>
 </resources>
