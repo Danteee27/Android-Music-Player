@@ -76,6 +76,7 @@ class SongGridAdapter(private val mListSongs: MutableList<Song>?,
                     MusicService.mListSongPlaying = mutableListOf()
                 }
                 MusicService.mListSongPlaying?.add(song)
+                Toast.makeText(holder.itemView.context, "Song added to queue", Toast.LENGTH_SHORT).show()
                 popupWindow.dismiss() // Optionally dismiss the popup window
             }
 

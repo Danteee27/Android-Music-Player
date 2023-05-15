@@ -55,7 +55,7 @@
 
         inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             private val deleteButton: ImageButton = itemView.findViewById(R.id.delete)
-            private val viewButton: Button = itemView.findViewById(R.id.view)
+            private val viewButton: ImageButton = itemView.findViewById(R.id.view)
             fun bind(listName: String) {
                 val listNameTextView = itemView.findViewById<TextView>(R.id.textView)
                 listNameTextView.text = listName
