@@ -11,23 +11,24 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/bg_main_shape_corner_6_border_white">
 
         <Button
             android:id="@+id/btn_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="+ Playlist"
-            android:textColor="@color/white"
-            android:background="@drawable/bg_main_shape_corner_6_border_white"/>
+            android:backgroundTint="@color/white"
+            android:color="@color/colorPrimaryDark"/>
 
         <Button
             android:id="@+id/btn_queue"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="+ Queue"
-            android:textColor="@color/white"
-            android:background="@drawable/bg_main_shape_corner_6_border_white"
+            android:backgroundTint="@color/white"
+            android:color="@color/colorPrimaryDark"
             />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,6 +23,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import java.util.ArrayList
 
+
 class CustomArrayAdapter(context: Context, userList: List<String>, private val songId: Int) :
     ArrayAdapter<String>(context, 0, userList) {
 
@@ -43,20 +44,21 @@ class CustomArrayAdapter(context: Context, userList: List<String>, private val s
         }
 
         listNameTextView.setOnClickListener {
-            handleButtonClick(listName, songId)
+            val firebaseAuth = FirebaseAuth.getInstance()
+            val uid = firebaseAuth.currentUser?.uid
+            handleButtonClick(listName, songId, uid)
         }
 
         return listItemView
     }
-    private fun handleButtonClick(listName: String?, songId: Int) {
+
+    private fun handleButtonClick(listName: String?, songId: Int, uid: String?) {
         if (listName != null) {
             println("Selected playlist: $listName")
             println("Song ID: $songId")
 
             // Add the song ID to the specified playlist in the Firebase Realtime Database
-            val firebaseAuth = FirebaseAuth.getInstance()
             val mFirebaseDatabase = FirebaseDatabase.getInstance(Constant.FIREBASE_URL)
-            val uid = firebaseAuth.currentUser?.uid
             if (uid != null) {
                 val playlistRef = mFirebaseDatabase?.getReference("/playList/$uid/$listName")
                 playlistRef?.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -107,7 +109,6 @@ class SongAdapter(private val mListSongs: MutableList<Song>?,
             val activity = holder.itemView.context as? Activity
             // Set click listeners for the buttons
             btnOption1.setOnClickListener {
-
                 if (activity != null) {
                     getUserList(activity)
 
