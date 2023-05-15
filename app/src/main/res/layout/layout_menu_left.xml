@@ -216,7 +216,6 @@
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="0.5dp"-->
 <!--            android:background="@color/white" />-->
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -226,23 +225,49 @@
             android:orientation="horizontal">
 
             <androidx.constraintlayout.utils.widget.ImageFilterView
-                android:id="@+id/ic_contact"
+                android:id="@+id/ic_account"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:src="@drawable/ic_contact"
+                android:src="@drawable/ic_account"
                 app:tint="@color/white"
-                tools:srcCompat="@drawable/ic_contact" />
+                tools:srcCompat="@drawable/ic_account" />
 
             <TextView
-                android:id="@+id/tv_menu_contact"
+                android:id="@+id/tv_menu_account"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/define_dimen_14"
-                android:text="@string/menu_contact"
+                android:text="@string/menu_account"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size_xnormal" />
 
-        </LinearLayout>
+        </LinearLayout>        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/define_dimen_20"
+        android:baselineAligned="true"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/ic_contact"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_contact"
+            app:tint="@color/white"
+            tools:srcCompat="@drawable/ic_contact" />
+
+        <TextView
+            android:id="@+id/tv_menu_contact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/define_dimen_14"
+            android:text="@string/menu_contact"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_xnormal" />
+
+    </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -324,6 +349,8 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size_xnormal" />
         </LinearLayout>
+
+
 
     </LinearLayout>
     </ScrollView>

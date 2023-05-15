@@ -164,6 +164,11 @@ class MainActivity : BaseActivity(), View.OnClickListener {
                 initToolbar(getString(R.string.menu_contact))
                 displayLayoutPlayAll()
             }
+            R.id.tv_menu_account -> {
+                mActivityMainBinding?.drawerLayout?.closeDrawer(GravityCompat.START)
+                replaceFragment(AccountFragment())
+                initToolbar("Account")
+            }
             R.id.tv_menu_upload->{
                 mActivityMainBinding?.drawerLayout?.closeDrawer(GravityCompat.START)
                 replaceFragment(UploadFragment())

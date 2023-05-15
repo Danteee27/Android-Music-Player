@@ -63,6 +63,7 @@
     <string name="song_image">song image</string>
     <string name="select_image">Select image</string>
     <string name="menu_upload">Upload</string>
+    <string name="menu_account">Account</string>
     <string name="upload">Upload</string>
     <string name="select_audio">Select audio</string>
     <string name="upload_audio">Audio</string>
