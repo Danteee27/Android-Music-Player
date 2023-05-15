@@ -32,6 +32,7 @@
     /**
      * A fragment representing a list of Items.
      */
+
     class MyAdapter(private var userList: List<String>) :
         RecyclerView.Adapter<MyAdapter.ViewHolder?>() {
 
@@ -54,6 +55,7 @@
             fun bind(listName: String) {
                 val listNameTextView = itemView.findViewById<TextView>(R.id.textView)
                 listNameTextView.text = listName
+                //println(listName)
                 deleteButton.setOnClickListener {
                     // Handle delete button click event
                     val position = adapterPosition
@@ -145,7 +147,7 @@
                     for (dataSnapshot in snapshot.children) {
                         val listName = dataSnapshot.key
                         if (listName != null) {
-                            println(listName)
+                            //println(listName)
                             userList.add(listName)
                         }
                     }

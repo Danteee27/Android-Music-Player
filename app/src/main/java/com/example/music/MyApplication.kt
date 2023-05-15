@@ -45,6 +45,10 @@ class MyApplication : Application() {
         return mFirebaseDatabase?.getReference("/playList/$uid")
     }
 
+    fun getSongInListDatabaseReference(uid: String?, listName: String?): DatabaseReference? {
+        return mFirebaseDatabase?.getReference("/playList/$uid/$listName")
+    }
+
     fun getFeedbackDatabaseReference(): DatabaseReference? {
         return mFirebaseDatabase?.getReference("/feedback")
     }
