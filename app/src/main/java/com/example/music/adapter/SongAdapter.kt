@@ -67,7 +67,7 @@ class CustomArrayAdapter(context: Context, userList: List<String>, private val s
                         val newIndex = childrenCount + 1
                         playlistRef.child(newIndex.toString()).setValue(songId)
                             .addOnSuccessListener {
-                                Toast.makeText(context, "Song ID added to $listName successfully", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(context, "Song added to $listName", Toast.LENGTH_SHORT).show()
                             }
                             .addOnFailureListener { error ->
                                 Toast.makeText(context, "Failed to add song ID to $listName: ${error.message}", Toast.LENGTH_SHORT).show()
