@@ -80,7 +80,7 @@ class PlaySongFragment : Fragment(), View.OnClickListener {
 
         mFragmentPlaySongBinding?.tvSongName?.text = currentSong?.getTitle()
         mFragmentPlaySongBinding?.tvArtist?.text = currentSong?.getArtist()
-        if(currentSong?.getLiked() == false)
+        if(currentSong?.getLiked() == true)
         {
             mFragmentPlaySongBinding?.imgLike?.setImageResource(R.drawable.ic_like_black)
         }
