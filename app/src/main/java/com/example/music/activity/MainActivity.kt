@@ -211,6 +211,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
                 mActivityMainBinding?.drawerLayout?.closeDrawer(GravityCompat.START)
                 replaceFragment(LikedSongFragment())
                 initToolbar("Liked Song")
+                mTypeScreen = TYPE_FEATURED_SONGS
                 displayLayoutPlayAll()
                 displayShuffle()
             }
