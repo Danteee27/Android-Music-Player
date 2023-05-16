@@ -189,6 +189,33 @@
                 android:orientation="horizontal">
 
                 <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:id="@+id/ic_likedSong"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/hearth"
+                    app:tint="@color/white"
+                    tools:srcCompat="@drawable/hearth" />
+
+                <TextView
+                    android:id="@+id/tv_menu_liked_songs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/define_dimen_14"
+                    android:text="Liked Song"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_xnormal" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/define_dimen_20"
+                android:baselineAligned="true"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <androidx.constraintlayout.utils.widget.ImageFilterView
                     android:id="@+id/ic_mylist"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
