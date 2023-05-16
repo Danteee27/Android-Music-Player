@@ -16,8 +16,8 @@ class FeedbackAdapter(private var context: Context?, private val listFeedback: M
     }
 
     override fun onBindViewHolder(holder: FeedbackViewHolder, position: Int) {
-        TODO("Not yet implemented")
         val feedback = listFeedback?.get(position) ?: return
+
         holder.mFeedbackBinding.tvEmail.text = feedback.getEmail();
         holder.mFeedbackBinding.tvFeedback.text = feedback.getComment();
 
