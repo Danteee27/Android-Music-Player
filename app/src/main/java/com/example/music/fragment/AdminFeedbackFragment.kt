@@ -24,29 +24,34 @@ class AdminFeedbackFragment : Fragment() {
     private var mFeedBackAdapter : FeedbackAdapter? = null
     private var firebaseAuth : FirebaseAuth? = FirebaseAuth.getInstance()
     private var firebaseDatabase : FirebaseDatabase? = FirebaseDatabase.getInstance()
+    private val feedbackArrayList: MutableList<Feedback> = ArrayList()
+    private var mFeedbackFragmentBinding: FragmentAdminFeedbackBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        var mFeedbackFragmentBinding = FragmentAdminFeedbackBinding.inflate(inflater,container,false)
-        mFeedBackAdapter = FeedbackAdapter(activity,getFeedbacks());
+        mFeedbackFragmentBinding = FragmentAdminFeedbackBinding.inflate(inflater,container,false)
+        getFeedbacks()
+        mFeedBackAdapter = FeedbackAdapter(activity,feedbackArrayList);
         // Inflate the layout for this fragment
-        val layoutManager = GridLayoutManager(activity, 3)
-        mFeedbackFragmentBinding.rcvData.isNestedScrollingEnabled = false
-        mFeedbackFragmentBinding.rcvData.isFocusable = false
-        mFeedbackFragmentBinding.rcvData.layoutManager = layoutManager
-        mFeedbackFragmentBinding.rcvData.adapter = mFeedBackAdapter
-        return mFeedbackFragmentBinding.root
+        val layoutManager = GridLayoutManager(activity, 1)
+        mFeedbackFragmentBinding?.rcvData?.isNestedScrollingEnabled = false
+        mFeedbackFragmentBinding?.rcvData?.isFocusable = false
+        mFeedbackFragmentBinding?.rcvData?.adapter = mFeedBackAdapter
+        mFeedbackFragmentBinding?.rcvData?.layoutManager = layoutManager
+        return mFeedbackFragmentBinding?.root
     }
 
     private fun getFeedbacks(): MutableList<Feedback>{
-        val feedbackArrayList: MutableList<Feedback> = ArrayList()
         firebaseDatabase?.getReference("feedback")?.addValueEventListener(object :
             ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (dataSnapshot in snapshot.children) {
                    feedbackArrayList.add(dataSnapshot.getValue(Feedback::class.java)!!)
+                    Log.d("khoa","feedback data: ${dataSnapshot.getValue(Feedback::class.java)}")
+                    mFeedBackAdapter = FeedbackAdapter(activity,feedbackArrayList);
+                    mFeedbackFragmentBinding?.rcvData?.adapter = mFeedBackAdapter
                 }
 
             }

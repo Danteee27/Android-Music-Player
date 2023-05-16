@@ -26,4 +26,10 @@ class Feedback() {
     fun setComment(comment: String?) {
         this.comment = comment
     }
+
+    override fun toString(): String {
+        return "Feedback(email=$email, comment=$comment)"
+    }
+
+
 }
