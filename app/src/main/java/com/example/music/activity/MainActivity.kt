@@ -70,7 +70,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         mActivityMainBinding?.menuLeft?.tvMenuFeaturedSongs?.setOnClickListener(this)
         mActivityMainBinding?.menuLeft?.tvMenuPopularSongs?.setOnClickListener(this)
         mActivityMainBinding?.menuLeft?.tvMenuNewSongs?.setOnClickListener(this)
-
+        mActivityMainBinding?.menuLeft?.tvMenuLikedSongs?.setOnClickListener(this)
         mActivityMainBinding?.menuLeft?.tvMenuFeedback?.setOnClickListener(this)
         mActivityMainBinding?.menuLeft?.tvMenuContact?.setOnClickListener(this)
         mActivityMainBinding?.menuLeft?.tvMenuLibrary?.setOnClickListener(this)
@@ -206,6 +206,13 @@ class MainActivity : BaseActivity(), View.OnClickListener {
                 replaceFragment(AdminFeedbackFragment())
                 mTypeScreen = TYPE_ADMIN_FEEDBACK
                 initToolbar(getString(R.string.menu_user_feedback))
+            }
+            R.id.tv_menu_liked_songs->{
+                mActivityMainBinding?.drawerLayout?.closeDrawer(GravityCompat.START)
+                replaceFragment(LikedSongFragment())
+                initToolbar("Liked Song")
+                displayLayoutPlayAll()
+                displayShuffle()
             }
             R.id.tv_menu_library->{
                 mActivityMainBinding?.drawerLayout?.closeDrawer(GravityCompat.START)
